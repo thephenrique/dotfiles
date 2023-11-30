@@ -1,0 +1,10 @@
+# Ignore all files/directories...
+/*
+
+# ... except ...
+!.gitignore
+
+# ... except.
+!.config
+!.i3status.conf
+!.zshrc

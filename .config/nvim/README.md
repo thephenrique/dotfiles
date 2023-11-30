@@ -1,0 +1,87 @@
+# Awesome Neovim configuration
+
+Just the necessary. \ (•◡•) /
+
+## Structure
+
+### Neovim startup configurations. 
+- `~/.config/nvim/init.lua`
+    - Mapping Leader key.
+    - Bootstrap default Neovim editor settings.
+    - Bootstrap the plugin manager.
+    - Load the plugins.
+
+### Default Neovim editor settings.
+- `~/.config/nvim/lua/thephenrique/default/builtin.lua`
+    - Settings of builtin plugins.
+- `~/.config/nvim/lua/thephenrique/default/options.lua`
+    - Settings of Neovim options.
+- `~/.config/nvim/lua/thephenrique/default/mappings.lua`
+    - Neovim global mappings.
+- `~/.config/nvim/lua/thephenrique/default/commands.lua`
+    - Neovim global commands.
+
+### Neovim load plugins.
+- `~/.config/nvim/lua/thephenrique/plugins/init.lua`
+    - Load/unload `Lazy.nvim` plugins.
+- `~/.config/nvim/lua/thephenrique/plugins/[PLUGIN_NAME].lua`
+- `~/.config/nvim/lua/thephenrique/plugins/*`
+
+### Neovim setup and mapping plugins.
+- `~/.config/nvim/after/plugin/[PLUGIN_NAME].lua`
+- `~/.config/nvim/after/plugin/*`
+
+## Plugins:
+
+### UI.
+
+- `zenburn`.
+    - Awesome theme.
+- `lualine.nvim`.
+    - Awesome Statusline theme helper.
+- `nvim-tree`.
+    - Awesome File Tree helper.
+- `fidget.nvim`.
+    - Show progress and notifications.
+
+### LSP (Language Server Protocol).
+
+- `nvim-lspconfig`.
+    - Native LSP.
+- `mason.nvim`.
+    - LSP manager.
+- `nvim-cmp` and `...`.
+    - Completion engine.
+- `lspkind.nvim`.
+    - Icons for completions.=
+- `neodev.nvim` and `LuaSnip`.
+    - Lua LSP configuraton helper and snippet engine.
+- `null-ls.nvim` (deprecated) and `...`.
+    - Awesome, but deprecated autofix. ¯\_(ツ)_/¯
+
+### Coding helpers.
+
+- `telescope.nvim`.
+    - Awesome finder.
+- `treesitter.nvim`.
+    - Syntax highlighting and folding support.
+- `vim-visual-multi`.
+    - Awesome multiple cursors.
+- `nvim-ufo`.
+    - Fold.
+- `Comment.nvim`.
+    - Automate line and block comments.
+- `nvim-autopairs`.
+    - Close pairs.
+- `nvim-colorizar`.
+    - Show HEX color background in editor.
+
+### Git helpers.
+
+- `vim-fugitive`.
+    - Use Git inside of editor.
+
+## TODO:
+
+- The `eslint-lsp` is a quite slow on first Neovim load. Replace?
+- CSS and Styled Components completions not working. Missing some LSP?

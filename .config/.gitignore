@@ -1,0 +1,11 @@
+# Ignore all files/directories...
+/*
+
+# ... except ...
+!.gitignore
+
+!i3
+!nvim
+!tmux
+!dunst
+!picom
