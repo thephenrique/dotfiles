@@ -50,14 +50,19 @@ Just the necessary. \ (•◡•) /
     - Native LSP.
 - `mason.nvim`.
     - LSP manager.
+- `neodev.nvim` and `LuaSnip`.
+    - Lua LSP configuraton helper.
+- `null-ls.nvim` (deprecated) and `...`.
+    - Awesome, but deprecated autofix. ¯\_(ツ)_/¯
+
+### Completions.
+
 - `nvim-cmp` and `...`.
     - Completion engine.
 - `lspkind.nvim`.
-    - Icons for completions.=
-- `neodev.nvim` and `LuaSnip`.
-    - Lua LSP configuraton helper and snippet engine.
-- `null-ls.nvim` (deprecated) and `...`.
-    - Awesome, but deprecated autofix. ¯\_(ツ)_/¯
+    - Icons for completions.
+- `LuaSnip`.
+    - Lua snippet engine.
 
 ### Coding helpers.
 

@@ -3,18 +3,8 @@ if not pcall(require, "lspconfig") then
 	return
 end
 
-if not pcall(require, "lspkind") then
-	print("Plugin: lspkind not found")
-	return
-end
-
 if not pcall(require, "mason") then
 	print("Plugin: mason not found")
-	return
-end
-
-if not pcall(require, "cmp") then
-	print("Plugin: cmp not found")
 	return
 end
 
@@ -28,18 +18,13 @@ if not pcall(require, "neodev") then
 	return
 end
 
-if not pcall(require, "luasnip") then
-	print("Plugin: luasnip not found")
-	return
-end
-
 vim.diagnostic.config({
 	virtual_text = true,
 })
 
 local lspconfig = require("lspconfig")
-local cmp = require("cmp")
 
+-- LSP servers management.
 require("mason").setup()
 
 -- Lua LSP configuraton helper.
@@ -97,43 +82,16 @@ lspconfig.bashls.setup({
 	capabilities = updated_capabilities,
 })
 
--- Setup auto completions.
-cmp.setup({
-	sources = {
-		{ name = "nvim_lsp" },
-		{ name = "luasnip" },
-	},
-	snippet = {
-		expand = function(args)
-			-- Lua snippet engine.
-			require("luasnip").lsp_expand(args.body)
-		end,
-	},
-	mapping = {
-		["<C-n>"] = cmp.mapping(function()
-			if cmp.visible() then
-				cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
-			else
-				cmp.complete()
-			end
-		end),
-		["<C-p>"] = cmp.mapping(function()
-			if cmp.visible() then
-				cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
-			else
-				cmp.complete()
-			end
-		end),
-		["<C-y>"] = cmp.mapping.confirm({ select = true }),
-		["<Tab>"] = cmp.config.disable,
-	},
-	formatting = {
-		format = require("lspkind").cmp_format({
-			mode = "symbol_text",
-			maxwidth = 50,
-		}),
-	},
-})
+-- @deprecated null-ls
+--
+-- :Mason Install prettier
+-- :Mason Install stylua
+--
+-- Provides autofix to: JS environment.
+-- With null-ls + prettier.
+-- Just tsserver + eslint is not enough. ¯\_(ツ)_/¯
+--
+-- Provides autofix to: Lua.
 
 if not pcall(require, "null-ls") then
 	print("Plugin: null-ls not found")
@@ -145,16 +103,6 @@ if not pcall(require, "prettier") then
 	return
 end
 
--- @deprecated null-ls
---
--- :Mason Install prettier
--- :Mason Install stylua
---
--- Provides autofix to: JS environment.
--- With null-ls + prettier.
--- Just tsserver + eslint is not enough. ¯\_(ツ)_/¯
---
--- Provides autofix to: Lua.
 require("null-ls").setup({
 	sources = {
 		require("null-ls").builtins.formatting.stylua,

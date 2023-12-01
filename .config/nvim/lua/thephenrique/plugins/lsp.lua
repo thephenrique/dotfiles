@@ -5,25 +5,16 @@ return {
 	-- So the text editors can support multiples programming languages.
 	"neovim/nvim-lspconfig",
 	dependencies = {
-		-- Mason. Helps to install and manage the LSP servers.
+		-- Helps to install and manage the LSP servers.
 		"williamboman/mason.nvim",
 
-		-- nvim-cmp. Provides auto completion to editor.
-		"hrsh7th/nvim-cmp",
-		"hrsh7th/cmp-nvim-lsp",
+    -- Lua LSP configuraton helper.
+    "folke/neodev.nvim",
 
-		-- lspkind. Provides icons to auto completion.
-		"onsails/lspkind.nvim",
-
-		-- Lua LSP configuraton helper.
-		"folke/neodev.nvim",
-		-- Lua snippet engine.
-		"L3MON4D3/LuaSnip",
-
-		-- @deprecated null-ls
-		--
-		-- Provides autofix.
-		"jose-elias-alvarez/null-ls.nvim",
-		"MunifTanjim/prettier.nvim",
+    -- @deprecated null-ls
+    --
+    -- Provides autofix.
+    "jose-elias-alvarez/null-ls.nvim",
+    "MunifTanjim/prettier.nvim",
 	},
 }

@@ -30,6 +30,10 @@ vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<C-w><", "20<C-w><")
 vim.keymap.set("n", "<C-w>>", "20<C-w>>")
 
+-- General open file in vertical split.
+-- Inside of nvim-tree, Telescope, ...
+-- <C-v> ::: to open a file in vertical split.
+
 --[[
 
 Mappings for: Current file/buffer.
@@ -90,6 +94,8 @@ vim.keymap.set("n", ";tt", ":NvimTreeFindFile<CR>")
 -- q ::: Close NvimTree.
 -- P ::: Move cursor to parent directory.
 -- W ::: Collapse all.
+-- I ::: Toggle Git ignored files/directories.
+-- H ::: Toggle hidden files/directories.
 --
 -- y ::: Copy file/directory name.
 -- Y ::: Copy relative path.
