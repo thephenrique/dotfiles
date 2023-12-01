@@ -45,15 +45,14 @@ require("mason").setup()
 -- Lua LSP configuraton helper.
 require("neodev").setup({})
 
--- local default_capabilities = require("cmp_nvim_lsp").default_capabilities()
 local updated_capabilities = vim.lsp.protocol.make_client_capabilities()
 vim.tbl_deep_extend("force", updated_capabilities, require("cmp_nvim_lsp").default_capabilities())
 updated_capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
-updated_capabilities.textDocument.completion.completionItem.snippetSupport = false
+updated_capabilities.textDocument.completion.completionItem.snippetSupport = true -- Allow HTML and CSS completions.
 updated_capabilities.textDocument.completion.completionItem.insertReplaceSupport = false
 updated_capabilities.textDocument.codeLens = { dynamicRegistration = false }
 
--- Setup Lua LSP server (lua-language-server).
+-- Setup Lua LSP server (:Mason install lua-language-server).
 lspconfig.lua_ls.setup({
 	capabilities = updated_capabilities,
 	settings = {
@@ -71,24 +70,29 @@ lspconfig.lua_ls.setup({
 	},
 })
 
--- Setup ESLint LSP server (eslint-lsp).
+-- Setup ESLint LSP server (:Mason install eslint-lsp).
 --
 -- @TODO This guy is a little slow on Neovim first load.
 lspconfig.eslint.setup({
 	capabilities = updated_capabilities,
 })
 
--- Setup TypeScript LSP server (typescript-language-server).
+-- Setup TypeScript LSP server (:Mason install typescript-language-server).
 lspconfig.tsserver.setup({
 	capabilities = updated_capabilities,
 })
 
--- Setup CSS LSP server (css-lsp).
+-- Setup CSS LSP server (:Mason install css-lsp).
 lspconfig.cssls.setup({
 	capabilities = updated_capabilities,
 })
 
--- Setup bash LSP server (bash-language-server).
+-- Setup HTML LSP server (:Mason install html-lsp).
+lspconfig.html.setup({
+	capabilities = updated_capabilities,
+})
+
+-- Setup bash LSP server (:Mason install bash-language-server).
 lspconfig.bashls.setup({
 	capabilities = updated_capabilities,
 })

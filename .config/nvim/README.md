@@ -84,4 +84,4 @@ Just the necessary. \ (•◡•) /
 ## TODO:
 
 - The `eslint-lsp` is a quite slow on first Neovim load. Replace?
-- CSS and Styled Components completions not working. Missing some LSP?
+- Styled Components completions not working. Missing some LSP?
