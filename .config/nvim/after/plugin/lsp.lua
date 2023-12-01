@@ -1,3 +1,9 @@
+--[[
+
+LSP settings.
+
+--]]
+
 if not pcall(require, "lspconfig") then
 	print("Plugin: lspconfig not found")
 	return
@@ -82,51 +88,89 @@ lspconfig.bashls.setup({
 	capabilities = updated_capabilities,
 })
 
--- @deprecated null-ls
---
--- :Mason Install prettier
--- :Mason Install stylua
---
--- Provides autofix to: JS environment.
--- With null-ls + prettier.
--- Just tsserver + eslint is not enough. ¯\_(ツ)_/¯
---
--- Provides autofix to: Lua.
+--[[
 
-if not pcall(require, "null-ls") then
-	print("Plugin: null-ls not found")
+Formatter/Autoformat settings.
+
+--]]
+
+if not pcall(require, "conform") then
+	print("Plugin: conform not found")
 	return
 end
 
-if not pcall(require, "prettier") then
-	print("Plugin: prettier not found")
-	return
-end
+local conform = require("conform")
 
-require("null-ls").setup({
-	sources = {
-		require("null-ls").builtins.formatting.stylua,
+conform.setup({
+	formatters_by_ft = {
+		-- Provides formatter to Lua (:Mason install stylua).
+		lua = { "stylua" },
+
+		-- Provides formatter to Web environment with Prettier (:Mason install prettierd).
+		javascript = { { "prettierd" } },
+		typescript = { "prettierd" },
+		javascriptreact = { "prettierd" },
+		typescriptreact = { "prettierd" },
+		css = { "prettierd" },
+		html = { "prettierd" },
+		json = { "prettierd" },
+		yaml = { "prettierd" },
+		graphql = { "prettierd" },
+		markdown = { "prettierd" },
 	},
-	on_attach = function(client)
-		if client.server_capabilities.documentFormattingProvider then
-			vim.api.nvim_command([[augroup Format]])
-			vim.api.nvim_command([[autocmd! * <buffer>]])
-			vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]])
-			vim.api.nvim_command([[augroup END]])
-		end
+	format_on_save = {
+		timeout_ms = 500,
+		lsp_fallback = true,
+	},
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*",
+	callback = function(args)
+		conform.format({ bufnr = args.buf, lsp_fallback = true })
 	end,
 })
 
-require("prettier").setup({
-	bin = "prettier",
-	filytypes = {
-		"css",
-		"javascript",
-		"javascriptreact",
-		"typescript",
-		"typescriptreact",
-		"json",
-		"scss",
-		"less",
-	},
-})
+-- @deprecated null-ls
+--
+-- Provider formatter to Lua and Web environment.
+-- :Mason Install prettier
+-- :Mason Install stylua
+
+-- if not pcall(require, "null-ls") then
+-- 	print("Plugin: null-ls not found")
+-- 	return
+-- end
+--
+-- if not pcall(require, "prettier") then
+-- 	print("Plugin: prettier not found")
+-- 	return
+-- end
+--
+-- require("null-ls").setup({
+-- 	sources = {
+-- 		require("null-ls").builtins.formatting.stylua,
+-- 	},
+-- 	on_attach = function(client)
+-- 		if client.server_capabilities.documentFormattingProvider then
+-- 			vim.api.nvim_command([[augroup Format]])
+-- 			vim.api.nvim_command([[autocmd! * <buffer>]])
+-- 			vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]])
+-- 			vim.api.nvim_command([[augroup END]])
+-- 		end
+-- 	end,
+-- })
+--
+-- require("prettier").setup({
+-- 	bin = "prettier",
+-- 	filytypes = {
+-- 		"css",
+-- 		"javascript",
+-- 		"javascriptreact",
+-- 		"typescript",
+-- 		"typescriptreact",
+-- 		"json",
+-- 		"scss",
+-- 		"less",
+-- 	},
+-- })

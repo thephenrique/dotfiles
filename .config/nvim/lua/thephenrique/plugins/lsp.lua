@@ -8,13 +8,14 @@ return {
 		-- Helps to install and manage the LSP servers.
 		"williamboman/mason.nvim",
 
-    -- Lua LSP configuraton helper.
-    "folke/neodev.nvim",
+		-- Lua LSP configuraton helper.
+		"folke/neodev.nvim",
 
-    -- @deprecated null-ls
-    --
-    -- Provides autofix.
-    "jose-elias-alvarez/null-ls.nvim",
-    "MunifTanjim/prettier.nvim",
+		-- Provides formatter helper.
+		"stevearc/conform.nvim",
+		-- @deprecated null-ls
+		--
+		-- "jose-elias-alvarez/null-ls.nvim",
+		-- "MunifTanjim/prettier.nvim",
 	},
 }

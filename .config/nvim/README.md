@@ -4,30 +4,34 @@ Just the necessary. \ (•◡•) /
 
 ## Structure
 
-### Neovim startup configurations. 
+### Neovim startup configurations.
+
 - `~/.config/nvim/init.lua`
-    - Mapping Leader key.
-    - Bootstrap default Neovim editor settings.
-    - Bootstrap the plugin manager.
-    - Load the plugins.
+  - Mapping Leader key.
+  - Bootstrap default Neovim editor settings.
+  - Bootstrap the plugin manager.
+  - Load the plugins.
 
 ### Default Neovim editor settings.
+
 - `~/.config/nvim/lua/thephenrique/default/builtin.lua`
-    - Settings of builtin plugins.
+  - Settings of builtin plugins.
 - `~/.config/nvim/lua/thephenrique/default/options.lua`
-    - Settings of Neovim options.
+  - Settings of Neovim options.
 - `~/.config/nvim/lua/thephenrique/default/mappings.lua`
-    - Neovim global mappings.
+  - Neovim global mappings.
 - `~/.config/nvim/lua/thephenrique/default/commands.lua`
-    - Neovim global commands.
+  - Neovim global commands.
 
 ### Neovim load plugins.
+
 - `~/.config/nvim/lua/thephenrique/plugins/init.lua`
-    - Load/unload `Lazy.nvim` plugins.
+  - Load/unload `Lazy.nvim` plugins.
 - `~/.config/nvim/lua/thephenrique/plugins/[PLUGIN_NAME].lua`
 - `~/.config/nvim/lua/thephenrique/plugins/*`
 
 ### Neovim setup and mapping plugins.
+
 - `~/.config/nvim/after/plugin/[PLUGIN_NAME].lua`
 - `~/.config/nvim/after/plugin/*`
 
@@ -36,57 +40,57 @@ Just the necessary. \ (•◡•) /
 ### UI.
 
 - `zenburn`.
-    - Awesome theme.
+  - Awesome theme.
 - `lualine.nvim`.
-    - Awesome Statusline theme helper.
+  - Awesome Statusline theme helper.
 - `nvim-tree`.
-    - Awesome File Tree helper.
+  - Awesome File Tree helper.
 - `fidget.nvim`.
-    - Show progress and notifications.
+  - Show progress and notifications.
 
 ### LSP (Language Server Protocol).
 
 - `nvim-lspconfig`.
-    - Native LSP.
+  - Native LSP.
 - `mason.nvim`.
-    - LSP manager.
+  - LSP manager.
 - `neodev.nvim` and `LuaSnip`.
-    - Lua LSP configuraton helper.
-- `null-ls.nvim` (deprecated) and `...`.
-    - Awesome, but deprecated autofix. ¯\_(ツ)_/¯
+  - Lua LSP configuraton helper.
+- `conform.nvim`.
+  - Formatter.
 
 ### Completions.
 
 - `nvim-cmp` and `...`.
-    - Completion engine.
+  - Completion engine.
 - `lspkind.nvim`.
-    - Icons for completions.
+  - Icons for completions.
 - `LuaSnip`.
-    - Lua snippet engine.
+  - Lua snippet engine.
 
 ### Coding helpers.
 
 - `telescope.nvim`.
-    - Awesome finder.
+  - Awesome finder.
 - `treesitter.nvim`.
-    - Syntax highlighting and folding support.
+  - Syntax highlighting and folding support.
 - `vim-visual-multi`.
-    - Awesome multiple cursors.
+  - Awesome multiple cursors.
 - `nvim-ufo`.
-    - Fold.
+  - Fold.
 - `Comment.nvim`.
-    - Automate line and block comments.
+  - Automate line and block comments.
 - `nvim-autopairs`.
-    - Close pairs.
+  - Close pairs.
 - `nvim-colorizar`.
-    - Show HEX color background in editor.
+  - Show HEX color background in editor.
 
 ### Git helpers.
 
 - `vim-fugitive`.
-    - Use Git inside of editor.
+  - Use Git inside of editor.
 
 ## TODO:
 
 - The `eslint-lsp` is a quite slow on first Neovim load. Replace?
-- Styled Components completions not working. Missing some LSP?
+- Styled Components hover and completions not working. Missing some LSP?
