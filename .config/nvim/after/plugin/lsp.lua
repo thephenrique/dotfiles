@@ -107,7 +107,7 @@ conform.setup({
 		lua = { "stylua" },
 
 		-- Provides formatter to Web environment with Prettier (:Mason install prettierd).
-		javascript = { { "prettierd" } },
+		javascript = { "prettierd" },
 		typescript = { "prettierd" },
 		javascriptreact = { "prettierd" },
 		typescriptreact = { "prettierd" },

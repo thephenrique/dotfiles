@@ -3,4 +3,8 @@ if not pcall(require, "fidget") then
 	return
 end
 
-require("fidget").setup()
+require("fidget").setup({
+	progress = {
+		ignore_empty_message = false, -- Allow LSP messages from `tsserver`.
+	},
+})
