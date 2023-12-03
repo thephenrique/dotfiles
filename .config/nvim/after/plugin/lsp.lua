@@ -14,6 +14,11 @@ if not pcall(require, "mason") then
 	return
 end
 
+if not pcall(require, "mason-lspconfig") then
+	print("Plugin: mason-lspconfig not found")
+	return
+end
+
 if not pcall(require, "cmp_nvim_lsp") then
 	print("Plugin: cmp_nvim_lsp not found")
 	return
@@ -29,9 +34,32 @@ vim.diagnostic.config({
 })
 
 local lspconfig = require("lspconfig")
+local mason_lspconfig = require("mason-lspconfig")
 
 -- LSP servers management.
 require("mason").setup()
+
+-- Auto install LSP servers with Mason.
+mason_lspconfig.setup({
+	ensure_installed = {
+		"tsserver",
+		"eslint",
+		-- prettierd
+		"html",
+		"cssls",
+		"jsonls",
+		"yamlls",
+		"dockerls",
+		"docker_compose_language_service",
+
+		"clangd",
+		"cmake",
+		"bashls",
+
+		"lua_ls",
+		-- stylua
+	},
+})
 
 -- Lua LSP configuraton helper.
 require("neodev").setup({})
@@ -43,7 +71,15 @@ updated_capabilities.textDocument.completion.completionItem.snippetSupport = tru
 updated_capabilities.textDocument.completion.completionItem.insertReplaceSupport = false
 updated_capabilities.textDocument.codeLens = { dynamicRegistration = false }
 
--- Setup Lua LSP server (:Mason install lua-language-server).
+-- Auto setup LSP servers from Mason.
+local installed_servers = mason_lspconfig.get_installed_servers()
+for _, server_name in ipairs(installed_servers) do
+	lspconfig[server_name].setup({
+		capabilities = updated_capabilities,
+	})
+end
+
+-- Setup Lua LSP server.
 lspconfig.lua_ls.setup({
 	capabilities = updated_capabilities,
 	settings = {
@@ -59,33 +95,6 @@ lspconfig.lua_ls.setup({
 			},
 		},
 	},
-})
-
--- Setup ESLint LSP server (:Mason install eslint-lsp).
---
--- @TODO This guy is a little slow on Neovim first load.
-lspconfig.eslint.setup({
-	capabilities = updated_capabilities,
-})
-
--- Setup TypeScript LSP server (:Mason install typescript-language-server).
-lspconfig.tsserver.setup({
-	capabilities = updated_capabilities,
-})
-
--- Setup CSS LSP server (:Mason install css-lsp).
-lspconfig.cssls.setup({
-	capabilities = updated_capabilities,
-})
-
--- Setup HTML LSP server (:Mason install html-lsp).
-lspconfig.html.setup({
-	capabilities = updated_capabilities,
-})
-
--- Setup bash LSP server (:Mason install bash-language-server).
-lspconfig.bashls.setup({
-	capabilities = updated_capabilities,
 })
 
 --[[
@@ -130,47 +139,3 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		conform.format({ bufnr = args.buf, lsp_fallback = true })
 	end,
 })
-
--- @deprecated null-ls
---
--- Provider formatter to Lua and Web environment.
--- :Mason Install prettier
--- :Mason Install stylua
-
--- if not pcall(require, "null-ls") then
--- 	print("Plugin: null-ls not found")
--- 	return
--- end
---
--- if not pcall(require, "prettier") then
--- 	print("Plugin: prettier not found")
--- 	return
--- end
---
--- require("null-ls").setup({
--- 	sources = {
--- 		require("null-ls").builtins.formatting.stylua,
--- 	},
--- 	on_attach = function(client)
--- 		if client.server_capabilities.documentFormattingProvider then
--- 			vim.api.nvim_command([[augroup Format]])
--- 			vim.api.nvim_command([[autocmd! * <buffer>]])
--- 			vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]])
--- 			vim.api.nvim_command([[augroup END]])
--- 		end
--- 	end,
--- })
---
--- require("prettier").setup({
--- 	bin = "prettier",
--- 	filytypes = {
--- 		"css",
--- 		"javascript",
--- 		"javascriptreact",
--- 		"typescript",
--- 		"typescriptreact",
--- 		"json",
--- 		"scss",
--- 		"less",
--- 	},
--- })

@@ -52,8 +52,8 @@ Just the necessary. \ (•◡•) /
 
 - `nvim-lspconfig`.
   - Native LSP.
-- `mason.nvim`.
-  - LSP manager.
+- `mason.nvim` and `mason-lspconfig`.
+  - LSP servers manager.
 - `neodev.nvim` and `LuaSnip`.
   - Lua LSP configuraton helper.
 - `conform.nvim`.
