@@ -55,6 +55,7 @@ mason_lspconfig.setup({
 		"clangd",
 		"cmake",
 		"bashls",
+		-- "shfmt",
 
 		"lua_ls",
 		-- stylua
@@ -126,6 +127,14 @@ conform.setup({
 		yaml = { "prettierd" },
 		graphql = { "prettierd" },
 		markdown = { "prettierd" },
+
+		-- Provides formatter to shell (:Mason install shfmt).
+		sh = { "shfmt" },
+	},
+	formatters = {
+		shfmt = {
+			prepend_args = { "-i", "2", "-ci", "-bn" },
+		},
 	},
 	format_on_save = {
 		timeout_ms = 500,
