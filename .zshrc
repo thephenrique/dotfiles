@@ -20,17 +20,27 @@ export EDITOR="nvim"
 # Olympus lint automation.
 alias olympuslint="yarn lint && yarn check:typescript && yarn test:ci"
 
-# On/Off notebook monitor at (right|left).
-alias noteon="xrandr --output eDP-1 --left-of HDMI-1 --auto"
-alias noteoff="xrandr --output eDP-1 --off"
+# Monitor settings.
+# xrandr --listactivemonitors
+
+LAPTOP_MONITOR="eDP-1"
+EXTERNAL_MONITOR="HDMI-1"
+
+# Setup external primary monitor.
+alias sethdmi="xrandr --output $EXTERNAL_MONITOR --primary --right-of $LAPTOP_MONITOR"
+# Turn on/off laptop monitor (right|left*).
+alias setnoteon="xrandr --output $LAPTOP_MONITOR --left-of $EXTERNAL_MONITOR --auto"
+alias setnoteoff="xrandr --output $LAPTOP_MONITOR --off"
 
 # Initialize Dotfiles with Git.
 if which git >/dev/null; then
-  DOTFILES_FILE=~/dotfiles.git
+  return # ... skip.
+
+  DOTFILES_FILE=~/.dotfiles.git
 
   if [ ! -d "$DOTFILES_FILE" ]; then
-    git init --bare ~/dotfiles.git
-    git config --global alias.dotfiles "!git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME"
+    git init --bare ~/.dotfiles.git
+    git config --global alias.dotfiles "!git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 
     # git clone --bare https://github.com/thephenrique/dotfiles.git
     # git clone https://github.com/thephenrique/dotfiles.git

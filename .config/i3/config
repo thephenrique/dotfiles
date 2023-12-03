@@ -39,7 +39,7 @@ popup_during_fullscreen smart
 
 # Third programs autostart.
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf --experimental-backends
-exec_always --no-startup-id feh --bg-fill $HOME/.local/share/backgrounds/white.jpg
+exec_always --no-startup-id feh --bg-fill $HOME/.local/share/backgrounds/gnome.png
 exec_always --no-startup-id dunst -config $HOME/.config/dunst/dunst.dunstrc
 
 
