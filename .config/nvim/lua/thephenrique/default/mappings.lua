@@ -92,8 +92,10 @@ vim.keymap.set("n", ";tt", ":NvimTreeFindFile<CR>")
 -- nvim-tree
 --
 -- q ::: Close NvimTree.
--- P ::: Move cursor to parent directory.
 -- W ::: Collapse all.
+-- P ::: Move cursor to parent directory.
+-- K ::: Move cursor to first children file/directory.
+-- J ::: Move cursor to last children file/directory.
 -- I ::: Toggle Git ignored files/directories.
 -- H ::: Toggle hidden files/directories.
 --
