@@ -53,6 +53,7 @@ vim.opt.showcmd = true
 vim.opt.showmode = true
 vim.opt.cmdheight = 1
 vim.opt.laststatus = 2
+vim.opt.ruler = false
 
 -- Vertical columns.
 vim.opt.signcolumn = "yes"
