@@ -85,10 +85,9 @@ Mappings for: Search/Replace and Move inside of file/buffer.
 
 --]]
 
--- Toggle File Explorer (nvim-tree).
-vim.keymap.set("n", ";t", ":NvimTreeToggle<CR>")
 -- Focus file in File Explorer (nvim-tree).
-vim.keymap.set("n", ";tt", ":NvimTreeFindFile<CR>")
+-- Close on open.
+vim.keymap.set("n", ";t", ":NvimTreeFindFile<CR>")
 -- nvim-tree
 --
 -- q ::: Close NvimTree.

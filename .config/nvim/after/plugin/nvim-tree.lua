@@ -4,6 +4,11 @@ if not pcall(require, "nvim-tree") then
 end
 
 require("nvim-tree").setup({
+	actions = {
+		open_file = {
+			quit_on_open = true,
+		},
+	},
 	sort = {
 		sorter = "case_sensitive",
 	},
