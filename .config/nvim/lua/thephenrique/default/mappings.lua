@@ -130,5 +130,10 @@ Mappings for: Search/Replace and Move inside of file/buffer.
 
 --]]
 
--- Split with git status (vim-fugitive).
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+-- Split with git status (neogit).
+vim.keymap.set("n", "<leader>gs", "<Cmd>Neogit<CR>")
+
+-- On changed line, Git Preview Hunk.
+vim.keymap.set("n", "<leader>gp", "<Cmd>Gitsigns preview_hunk<CR>")
+-- On changed line, Git Reset Hunk.
+vim.keymap.set("n", "<leader>gr", "<Cmd>Gitsigns reset_hunk<CR>")

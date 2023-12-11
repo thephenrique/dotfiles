@@ -87,8 +87,11 @@ Just the necessary. \ (•◡•) /
 
 ### Git helpers.
 
-- `vim-fugitive`.
-  - Use Git inside of editor.
+- `neogit`.
+  - Git user interface.
+
+- `gitsigns.nvim`.
+  - Git decorations inside of Buffer.
 
 ## TODO:
 
