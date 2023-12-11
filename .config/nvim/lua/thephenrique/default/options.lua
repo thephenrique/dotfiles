@@ -27,7 +27,27 @@ vim.opt.scrolloff = 10
 vim.opt.wrap = false
 vim.opt.relativenumber = true
 vim.opt.number = true
-vim.opt.fillchars = { eob = "~" }
+vim.opt.list = true
+-- Minimalist listchars. #Option 1.
+vim.opt.listchars:append({ tab = "  " })
+vim.opt.listchars:append({ trail = "·" })
+-- Heavy listchars. #Option 2.
+-- vim.opt.listchars:append({ lead = "·" })
+-- vim.opt.listchars:append({ space = "·" })
+-- Minimalist fillchars. #Option 1.
+vim.opt.fillchars = { eob = " " }
+-- Heavy fillchars. Option #2.
+-- vim.opt.fillchars = {
+-- 	eob = " ",
+-- 	fold = " ",
+-- 	horiz = "━",
+-- 	horizup = "┻",
+-- 	horizdown = "┳",
+-- 	vert = "┃",
+-- 	vertleft = "┫",
+-- 	vertright = "┣",
+-- 	verthoriz = "╋",
+-- }
 
 -- Buffer.
 vim.opt.path:append({ "**" })
