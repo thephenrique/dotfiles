@@ -1,12 +1,12 @@
 --[[
 
-Mappings for: ¯\_(ツ)_/¯
+Mappings for ¯\_(ツ)_/¯
 
 --]]
 
 -- Move selected line up/down.
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 
 -- Keep the cursor in the center on some jumpings.
 --
@@ -19,14 +19,15 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- Paste, but not replace the yanked text in Visual Mode.
+-- Paste, but not replace the yanked text.
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
--- Move between Quickfix and show the Buffer.
+-- Display up/down Quickfix items on buffer.
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 
--- Resize horizontal splits.
+-- Resize vertical splits.
+-- I generally only use vertical splits.
 vim.keymap.set("n", "<C-w><", "20<C-w><")
 vim.keymap.set("n", "<C-w>>", "20<C-w>>")
 
