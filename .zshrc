@@ -19,6 +19,8 @@ export EDITOR="nvim"
 
 # Olympus lint automation.
 alias olympuslint="yarn lint && yarn check:typescript && yarn test:ci"
+# Grep only failed files from large project.
+alias testfailfiles="yarn jest --silent 2>&1 | grep 'FAIL' | sort | uniq"
 
 # Monitor settings.
 # xrandr --listactivemonitors
