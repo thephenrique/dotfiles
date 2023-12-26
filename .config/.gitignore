@@ -4,9 +4,11 @@
 # ... except ...
 !.gitignore
 
+!alacritty
+!bin
+!dunst
 !i3
 !nvim
-!tmux
-!dunst
 !picom
-!alacritty
+!tmux
+!zsh
