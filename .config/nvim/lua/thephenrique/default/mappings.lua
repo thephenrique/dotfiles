@@ -23,8 +23,8 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- Display up/down Quickfix items on buffer.
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
 
 -- Resize vertical splits.
 -- I generally only use vertical splits.
@@ -120,6 +120,8 @@ vim.keymap.set("n", ";r", "<Cmd>Telescope lsp_references<CR>")
 vim.keymap.set("n", ";f", "<Cmd>Telescope find_files no_ignore=false hidden=true<CR>")
 -- Live Grep.
 vim.keymap.set("n", ";g", "<Cmd>Telescope live_grep<CR>")
+-- Grep String + filter files + RegEx.
+vim.keymap.set("n", ";s", ":Telescope grep_string search=")
 -- Show Buffers.
 vim.keymap.set("n", ";b", "<Cmd>Telescope buffers<CR>")
 -- Resume (show last query/search).

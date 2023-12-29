@@ -99,7 +99,7 @@ vim.opt.diffopt = { "internal", "filler", "closeoff", "hiddenoff", "algorithm:mi
 
 -- Save Undo History. ಠ_ಠ
 vim.opt.undofile = true
-vim.opt.undodir = os.getenv("HOME") .. "/.cache/.nvim/undodir"
+vim.opt.undodir = os.getenv("HOME") .. "/.cache/nvim/undodir"
 -- Backup and ShaDa File (Shared Data).
 vim.opt.backup = false
 vim.opt.swapfile = false
