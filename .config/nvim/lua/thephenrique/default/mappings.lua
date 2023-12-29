@@ -1,6 +1,6 @@
 --[[
 
-Mappings for ¯\_(ツ)_/¯
+Mappings for ¯\_(ツ)_/¯ .
 
 --]]
 
@@ -37,7 +37,8 @@ vim.keymap.set("n", "<C-w>>", "20<C-w>>")
 
 --[[
 
-Mappings for: Current file/buffer.
+Mappings for current Buffer write.
+And documentation for builtin mappings of some plugins.
 
 --]]
 
@@ -59,7 +60,7 @@ Mappings for: Current file/buffer.
 
 --[[
 
-Mappings for: Search/Replace and Move inside of file/buffer.
+Mappings for current Buffer diagnostics.
 
 --]]
 
@@ -82,7 +83,7 @@ end)
 
 --[[
 
-Mappings for: Search/Replace and Move inside of file/buffer.
+Mappings for Working Directory navigation.
 
 --]]
 
@@ -129,7 +130,7 @@ vim.keymap.set("n", ";;", "<Cmd>Telescope resume<CR>")
 
 --[[
 
-Mappings for: Search/Replace and Move inside of file/buffer.
+Mappings for Git integration.
 
 --]]
 
