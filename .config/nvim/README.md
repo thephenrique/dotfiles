@@ -84,6 +84,8 @@ Just the necessary. \ (•◡•) /
   - Close pairs.
 - `nvim-colorizar`.
   - Show HEX color background in editor.
+- `vim-matchup`.
+  - Matching keys extend features.
 
 ### Git helpers.
 
@@ -92,6 +94,11 @@ Just the necessary. \ (•◡•) /
 
 - `gitsigns.nvim`.
   - Git decorations inside of Buffer.
+
+### Markdown helpers.
+
+- `markdown-preview.nvim`.
+  - Render markdown.
 
 ## TODO:
 

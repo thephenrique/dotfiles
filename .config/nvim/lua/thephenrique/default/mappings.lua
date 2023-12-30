@@ -141,3 +141,12 @@ vim.keymap.set("n", "<leader>gs", "<Cmd>Neogit<CR>")
 vim.keymap.set("n", "<leader>gp", "<Cmd>Gitsigns preview_hunk<CR>")
 -- On changed line, Git Reset Hunk.
 vim.keymap.set("n", "<leader>gr", "<Cmd>Gitsigns reset_hunk<CR>")
+
+--[[
+
+Mappings for Markdown integration.
+
+--]]
+
+-- Markdown Preview.
+-- :MarkdownPreview ::: Open Markdown preview.
