@@ -89,7 +89,7 @@ Mappings for Working Directory navigation.
 
 -- Focus file in File Explorer (nvim-tree).
 -- Close on open.
-vim.keymap.set("n", ";t", ":NvimTreeFindFile<CR>")
+vim.keymap.set("n", "<leader>;t", ":NvimTreeFindFile<CR>")
 -- nvim-tree
 --
 -- q ::: Close NvimTree.
@@ -113,20 +113,20 @@ vim.keymap.set("n", ";t", ":NvimTreeFindFile<CR>")
 -- s ::: Run system.
 
 -- Go to Definition.
-vim.keymap.set("n", ";d", "<Cmd>Telescope lsp_definitions<CR>")
+vim.keymap.set("n", "<leader>;d", "<Cmd>Telescope lsp_definitions<CR>")
 -- Go to References.
-vim.keymap.set("n", ";r", "<Cmd>Telescope lsp_references<CR>")
+vim.keymap.set("n", "<leader>;r", "<Cmd>Telescope lsp_references<CR>")
 
 -- Find Files.
-vim.keymap.set("n", ";f", "<Cmd>Telescope find_files no_ignore=false hidden=true<CR>")
+vim.keymap.set("n", "<leader>;f", "<Cmd>Telescope find_files no_ignore=false hidden=true<CR>")
 -- Live Grep.
-vim.keymap.set("n", ";g", "<Cmd>Telescope live_grep<CR>")
+vim.keymap.set("n", "<leader>;g", "<Cmd>Telescope live_grep<CR>")
 -- Grep String + filter files + RegEx.
-vim.keymap.set("n", ";s", ":Telescope grep_string search=")
+vim.keymap.set("n", "<leader>;s", ":Telescope grep_string search=")
 -- Show Buffers.
-vim.keymap.set("n", ";b", "<Cmd>Telescope buffers<CR>")
+vim.keymap.set("n", "<leader>;b", "<Cmd>Telescope buffers<CR>")
 -- Resume (show last query/search).
-vim.keymap.set("n", ";;", "<Cmd>Telescope resume<CR>")
+vim.keymap.set("n", "<leader>;;", "<Cmd>Telescope resume<CR>")
 
 --[[
 
