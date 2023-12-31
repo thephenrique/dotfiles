@@ -9,6 +9,10 @@ vim.opt.wildoptions = "pum"
 vim.opt.updatetime = 1000
 vim.opt.timeoutlen = 300
 
+-- Spell check.
+vim.opt.spell = true
+vim.opt.spelllang = "en_us"
+
 -- OS integration.
 vim.opt.shell = "zsh"
 vim.opt.clipboard:append({ "unnamedplus" })
