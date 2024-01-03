@@ -43,7 +43,13 @@ And documentation for builtin mappings of some plugins.
 --]]
 
 -- Multiple Cursors.
--- <C-n> ::: in Visual Mode to init.
+--   `vim-visual-multi` Leader Key ::: \\
+--   `vim-visual-multi` switch between Cursor and Extend Modes ::: <Tab>
+--   `vim-visual-multi` Cursor Mode is similar to Neovim Normal Mode.
+--   `vim-visual-multi` Extend Mode is similar to Neovim Visual Mode.
+--
+--   <C-n> ::: in Visual Mode to init Extend Mode.
+--   <leader>a ::: in Cursor Mode to align regions.
 --
 -- Auto completions.
 -- Inside of nvim-cmp floating windows:
@@ -122,7 +128,9 @@ vim.keymap.set("n", "<leader>;f", "<Cmd>Telescope find_files no_ignore=false hid
 -- Live Grep.
 vim.keymap.set("n", "<leader>;g", "<Cmd>Telescope live_grep<CR>")
 -- Grep String + filter files + RegEx.
-vim.keymap.set("n", "<leader>;s", ":Telescope grep_string search=")
+vim.keymap.set("n", "<leader>;s", function()
+	require("telescope.builtin").grep_string({ search = vim.fn.input("Grep String: ") })
+end)
 -- Show Buffers.
 vim.keymap.set("n", "<leader>;b", "<Cmd>Telescope buffers<CR>")
 -- Resume (show last query/search).
