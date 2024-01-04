@@ -3,6 +3,7 @@ if not pcall(require, "nvim-treesitter") then
 	return
 end
 
+--- @diagnostic disable-next-line: missing-fields
 require("nvim-treesitter.configs").setup({
 	ensure_installed = {
 		"javascript",

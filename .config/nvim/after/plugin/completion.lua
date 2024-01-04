@@ -44,6 +44,7 @@ cmp.setup({
 		["<C-y>"] = cmp.mapping.confirm({ select = true }),
 		["<Tab>"] = cmp.config.disable,
 	},
+	--- @diagnostic disable-next-line: missing-fields
 	formatting = {
 		format = require("lspkind").cmp_format({
 			mode = "symbol_text",

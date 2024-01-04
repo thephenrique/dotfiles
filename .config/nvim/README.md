@@ -80,7 +80,7 @@ Just the necessary. \ (•◡•) /
   - Fold.
 - `Comment.nvim`.
   - Automate line and block comments.
-- `nvim-autopairs`.
+- `nvim-autopairs`. (Disabled)
   - Close pairs.
 - `nvim-colorizar`.
   - Show HEX color background in editor.
