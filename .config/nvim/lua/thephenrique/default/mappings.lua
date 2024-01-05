@@ -134,13 +134,20 @@ Mappings for Git integration.
 
 --]]
 
+-- Neogit.
 -- Split with git status (neogit).
 vim.keymap.set("n", "<leader>gs", "<Cmd>Neogit<CR>")
 
+-- Git on Buffer.
 -- On changed line, Git Preview Hunk.
 vim.keymap.set("n", "<leader>gp", "<Cmd>Gitsigns preview_hunk<CR>")
 -- On changed line, Git Reset Hunk.
 vim.keymap.set("n", "<leader>gr", "<Cmd>Gitsigns reset_hunk<CR>")
+
+-- Git conflicts. High contrast!
+-- co ::: With Git conflicts, choose Current/Ours change.
+-- ct ::: With Git conflicts, choose Incoming/Theirs change.
+-- cb ::: With Git conflicts, choose both.
 
 --[[
 
