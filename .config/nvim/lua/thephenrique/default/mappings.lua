@@ -118,21 +118,13 @@ vim.keymap.set("n", "<leader>;t", ":NvimTreeFindFile<CR>")
 -- o ::: Open to Buffer.
 -- s ::: Run system.
 
--- Go to Definition.
-vim.keymap.set("n", "<leader>;d", "<Cmd>Telescope lsp_definitions<CR>")
--- Go to References.
-vim.keymap.set("n", "<leader>;r", "<Cmd>Telescope lsp_references<CR>")
-
--- Find Files.
-vim.keymap.set("n", "<leader>;f", "<Cmd>Telescope find_files no_ignore=false hidden=true<CR>")
--- Live Grep.
-vim.keymap.set("n", "<leader>;g", "<Cmd>Telescope live_grep<CR>")
--- Grep String + filter files + RegEx.
-vim.keymap.set("n", "<leader>;s", function()
-	require("telescope.builtin").grep_string({ search = vim.fn.input("Grep String: ") })
-end)
--- Show Buffers.
-vim.keymap.set("n", "<leader>;b", "<Cmd>Telescope buffers<CR>")
+-- <leader>;d ::: Go to Definition.
+-- <leader>;r ::: Go to References.
+-- <leader>;f ::: Find Files.
+-- <leader>;i ::: Find Directories and focus with nvim-tree.
+-- <leader>;g ::: Live Grep.
+-- <leader>;s ::: Grep String.
+-- <leader>;b ::: Show Buffers.
 -- Resume (show last query/search).
 vim.keymap.set("n", "<leader>;;", "<Cmd>Telescope resume<CR>")
 

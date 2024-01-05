@@ -26,4 +26,8 @@ require("nvim-tree").setup({
 	filters = {
 		dotfiles = true,
 	},
+	live_filter = {
+		prefix = "[FILTER]: ",
+		always_show_folders = false,
+	},
 })
