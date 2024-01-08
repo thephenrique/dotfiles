@@ -4,6 +4,13 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 
 #
+# Binds.
+#
+
+# Open tmux sessions with fuzzy finder.
+bindkey -s '^t' '~/.config/bin/tmux-sessionizer\n'
+
+#
 # Current work helpers.
 #
 
@@ -11,8 +18,8 @@ export VISUAL="nvim"
 alias olympuslint="yarn lint && yarn check:typescript && yarn test:ci"
 
 # Current work: tmux aliases.
-alias tmuxolympus="tmux new-session -s 'olympus' -c '$HOME/Documents/work/Gympass/apps/olympus'"    # -d (detach and switch later)
-alias tmuxcerberus="tmux new-session -s 'cerberus' -c '$HOME/Documents/work/Gympass/apps/cerberus'" # -d (detach and switch later)
+# alias tmuxolympus="tmux new-session -s 'olympus' -c '$HOME/Documents/work/Gympass/apps/olympus'"    # -d (detach and switch later)
+# alias tmuxcerberus="tmux new-session -s 'cerberus' -c '$HOME/Documents/work/Gympass/apps/cerberus'" # -d (detach and switch later)
 #tmux kill-server
 #tmux kill-session -t "olympus"
 #tmux attach-session -t "olympus"

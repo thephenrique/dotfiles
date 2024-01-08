@@ -52,10 +52,12 @@ include $HOME/.config/i3/statusbar.conf
 
 
 
-# Force Fix keyboard layout and swap CAPS with Left CTRL.
-bindsym $mod+F1 exec --no-startup-id setxkbmap -option ctrl:nocaps -layout us -variant intl
 # Force Fix auto-repeat configs.
-bindsym $mod+F2 exec --no-startup-id $xset_rate
+bindsym $mod+F1 exec --no-startup-id $xset_rate
+# Force Fix keyboard layout and swap CAPS with Left CTRL.
+bindsym $mod+F2 exec --no-startup-id setxkbmap -option ctrl:nocaps -layout us
+# Force Fix keyboard layout (with intl variant) and swap CAPS with Left CTRL.
+bindsym $mod+F3 exec --no-startup-id setxkbmap -option ctrl:nocaps -layout us -variant intl
 
 # Restart i3 inplace.
 bindsym $mod+Shift+r restart

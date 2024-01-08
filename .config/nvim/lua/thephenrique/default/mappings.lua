@@ -4,6 +4,10 @@ Mappings for ¯\_(ツ)_/¯ .
 
 --]]
 
+-- Think of it as clear/done here ¯\_(ツ)_/¯ .
+-- But, any real problem, we have <ESC> and <C-c>.
+vim.keymap.set("i", "<C-l>", "<ESC>")
+
 -- Move selected line up/down.
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
