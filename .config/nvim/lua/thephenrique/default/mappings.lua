@@ -31,9 +31,11 @@ vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
 
 -- Resize vertical splits.
--- I generally only use vertical splits.
-vim.keymap.set("n", "<C-w><", "20<C-w><")
 vim.keymap.set("n", "<C-w>>", "20<C-w>>")
+vim.keymap.set("n", "<C-w><", "20<C-w><")
+-- Resize horizontal splits.
+vim.keymap.set("n", "<C-w>.", "10<C-w>+")
+vim.keymap.set("n", "<C-w>,", "10<C-w>-")
 
 -- General open file in vertical split.
 -- Inside of nvim-tree, Telescope, ...

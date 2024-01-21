@@ -55,6 +55,7 @@ mason_lspconfig.setup({
 		"clangd",
 		"cmake",
 		"bashls",
+		"gopls",
 		-- "shfmt",
 
 		"lua_ls",

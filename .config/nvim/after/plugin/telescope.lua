@@ -6,6 +6,7 @@ end
 require("telescope").setup({
 	defaults = {
 		wrap_results = true,
+		file_ignore_patterns = { ".git/" },
 	},
 	extensions = {
 		fzf = {
@@ -192,19 +193,20 @@ function telescopePickers.prettyBuffersPicker(localOptions)
 				{ width = fileTypeIconWidth },
 				{ width = nil },
 				{ width = nil },
+				{ width = nil },
 				{ remaining = true },
 			},
 		})
 
 		originalEntryTable.display = function(entry)
 			local tail, path = telescopePickers.getPathAndTail(entry.filename)
-			local tailForDisplay = tail .. " "
 			local icon, iconHighlight = telescopeUtilities.get_devicons(tail)
 
 			return displayer({
 				{ icon, iconHighlight },
-				tailForDisplay,
 				{ "(" .. entry.bufnr .. ")", "TelescopeResultsNumber" },
+				{ entry.indicator, "TelescopeResultsComment" },
+				{ tail },
 				{ path, "TelescopeResultsComment" },
 			})
 		end
