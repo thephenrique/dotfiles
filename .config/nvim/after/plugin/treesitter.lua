@@ -54,7 +54,7 @@ Troubleshooting
 
 --]]
 
--- Fix weird problems... ¯\_(ツ)_/¯
+-- How to fix weird problems... ¯\_(ツ)_/¯
 -- :TSUninstall all
 --
 -- "query error: invalid node type at position"

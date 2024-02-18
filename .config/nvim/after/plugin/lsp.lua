@@ -35,6 +35,7 @@ vim.diagnostic.config({
 
 local lspconfig = require("lspconfig")
 local mason_lspconfig = require("mason-lspconfig")
+local lspconfig_utils = require("lspconfig.util")
 
 -- LSP servers management.
 require("mason").setup()
@@ -56,6 +57,7 @@ mason_lspconfig.setup({
 		"cmake",
 		"bashls",
 		"gopls",
+		"kotlin_language_server",
 		-- "shfmt",
 
 		"lua_ls",
@@ -94,6 +96,21 @@ lspconfig.lua_ls.setup({
 			},
 			completion = {
 				callSnippet = "Replace",
+			},
+		},
+	},
+})
+
+-- Setup Kotlin LSP server.
+lspconfig.kotlin_language_server.setup({
+	capabilities = updated_capabilities,
+	settings = {
+		kotlin = {
+			compiler = {
+				jvm = {
+					-- Fix conflict diagnostic: Cannot inline bytecode built with JVM target 17 into bytecode that is being built with JVM target 1.8.
+					target = "17",
+				},
 			},
 		},
 	},
