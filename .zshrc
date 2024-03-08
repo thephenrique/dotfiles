@@ -28,3 +28,6 @@ export PATH=$PATH:$HOME/.emacs.d/bin
 
 # Add Gympass josie.
 export PATH=$PATH:$HOME/.josie
+
+# Add GPG for GitHub.
+export GPG_TTY=$(tty)
