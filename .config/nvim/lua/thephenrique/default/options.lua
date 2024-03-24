@@ -10,7 +10,7 @@ vim.opt.updatetime = 1000
 vim.opt.timeoutlen = 300
 
 -- Spell check.
-vim.opt.spell = true
+vim.opt.spell = false
 vim.opt.spelllang = "en_us"
 
 -- OS integration.

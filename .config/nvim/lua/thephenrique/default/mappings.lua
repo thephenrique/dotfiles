@@ -106,6 +106,7 @@ vim.keymap.set("n", "<leader>;t", ":NvimTreeFindFile<CR>")
 --
 -- q ::: Close NvimTree.
 -- W ::: Collapse all.
+-- - ::: Up. Go back to parent directory.
 -- P ::: Move cursor to parent directory.
 -- K ::: Move cursor to first children file/directory.
 -- J ::: Move cursor to last children file/directory.
@@ -121,6 +122,7 @@ vim.keymap.set("n", "<leader>;t", ":NvimTreeFindFile<CR>")
 -- x ::: Cut file/directory.
 -- d ::: Delete file/directory.
 --
+-- <Tab> ::: Preview file without close NvimTreee.
 -- o ::: Open to Buffer.
 -- s ::: Run system.
 

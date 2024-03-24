@@ -20,7 +20,9 @@ source $ZSH/oh-my-zsh.sh
 # PATH Environment variableas.
 
 # Add Go programming language.
-export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:/usr/local/go/bin/bin
+export GOPATH=/usr/local/go/bin
+
 # Add Doom Emacs. ¯\_(ツ)_/¯
 export PATH=$PATH:$HOME/.emacs.d/bin
 
