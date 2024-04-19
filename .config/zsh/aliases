@@ -16,6 +16,7 @@ bindkey -s '^t' '~/.config/bin/tmux-sessionizer\n'
 
 # Current work: Lint automation.
 alias olympuslint="yarn lint && yarn check:typescript && yarn test:ci"
+alias cerberuslint="yarn typecheck && yarn lint && yarn test:ci"
 
 # Current work: tmux aliases.
 # alias tmuxolympus="tmux new-session -s 'olympus' -c '$HOME/Documents/work/Gympass/apps/olympus'"    # -d (detach and switch later)

@@ -259,6 +259,48 @@ function telescopePickers.prettyLSPReferences(localOptions)
 	require("telescope.builtin").lsp_references(options)
 end
 
+-- Generates a beautified LSP Implementation picker.
+function telescopePickers.prettyLSPImplementations(localOptions)
+	if localOptions ~= nil and type(localOptions) ~= "table" then
+		print("Options must be a table.")
+		return
+	end
+
+	local options = localOptions or {}
+
+	local originalEntryMaker = telescopeMakeEntryModule.gen_from_quickfix(options)
+
+	options.entry_maker = function(line)
+		local originalEntryTable = originalEntryMaker(line)
+
+		local displayer = telescopeEntryDisplayModule.create({
+			separator = " ",
+			items = {
+				{ width = fileTypeIconWidth },
+				{ width = nil },
+				{ width = nil },
+				{ remaining = true },
+			},
+		})
+
+		originalEntryTable.display = function(entry)
+			local tail, path = telescopePickers.getPathAndTail(entry.filename)
+			local tailForDisplay = tail .. " "
+			local icon, iconHighlight = telescopeUtilities.get_devicons(tail)
+
+			return displayer({
+				{ icon, iconHighlight },
+				tailForDisplay,
+				{ path, "TelescopeResultsComment" },
+			})
+		end
+
+		return originalEntryTable
+	end
+
+	require("telescope.builtin").lsp_implementations(options)
+end
+
 -- Generates a beautified LSP Definitions picker.
 function telescopePickers.prettyLSPDefinitions(localOptions)
 	if localOptions ~= nil and type(localOptions) ~= "table" then
@@ -370,6 +412,11 @@ end)
 -- Go to References.
 vim.keymap.set("n", "<leader>;r", function()
 	telescopePickers.prettyLSPReferences()
+end)
+
+-- Go to Implementations (useful for Dependency Inversion).
+vim.keymap.set("n", "<leader>;m", function()
+	telescopePickers.prettyLSPImplementations()
 end)
 
 -- Find Files.
