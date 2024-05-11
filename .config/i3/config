@@ -25,9 +25,21 @@ exec --no-startup-id $xset_rate
 
 
 
+# Setup monitors.
+# Setup external primary monitor.
+set $xrandr_primary_monitor xrandr --output "DP-1" --primary --left-of "eDP-1" --scale 1x1
+set $xrandr_fix_dpi xrandr --dpi 144
+set $xrandr_fix_resolution xrandr -s 3840x2160
+exec_always $xrandr_primary_monitor
+exec_always $xrandr_fix_dpi
+exec_always $xrandr_fix_resolution
+
+
+
 # Font.
 # font pango:Source Code Pro 11
-font pango:Iosevka Nerd Font Mono 10
+# font pango:Iosevka Nerd Font Mono 10
+font pango:Iosevka NF 11
 
 # Orientation for new workspaces.
 default_orientation horizontal
