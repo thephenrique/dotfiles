@@ -25,17 +25,6 @@ exec --no-startup-id $xset_rate
 
 
 
-# Setup monitors.
-# Setup external primary monitor.
-set $xrandr_primary_monitor xrandr --output "DP-1" --primary --left-of "eDP-1" --scale 1x1
-set $xrandr_fix_dpi xrandr --dpi 144
-set $xrandr_fix_resolution xrandr -s 3840x2160
-exec_always $xrandr_primary_monitor
-exec_always $xrandr_fix_dpi
-exec_always $xrandr_fix_resolution
-
-
-
 # Font.
 # font pango:Source Code Pro 11
 # font pango:Iosevka Nerd Font Mono 10
@@ -92,7 +81,7 @@ mode "$mode_system" {
   bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
   bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
   bindsym r exec --no-startup-id systemctl reboot, mode "default"
-  bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
+  bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
 
   bindsym Return mode "default"
   bindsym Escape mode "default"
@@ -119,3 +108,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym XF86MonBrightnessUp exec light -A 1 # increase screen brightness
 bindsym XF86MonBrightnessDown exec light -U 1 # decrease screen brightness
 
+
+
+# Setup monitors.
+# The monitors may flicker while setup is runnig.
+exec --no-startup-id bash ~/.config/bin/setup_monitors.sh
