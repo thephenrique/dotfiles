@@ -27,7 +27,8 @@ exec --no-startup-id $xset_rate
 
 # Font.
 # font pango:Source Code Pro 11
-font pango:Iosevka Nerd Font Mono 10
+# font pango:Iosevka Nerd Font Mono 10
+font pango:Iosevka NF 11
 
 # Orientation for new workspaces.
 default_orientation horizontal
@@ -80,7 +81,7 @@ mode "$mode_system" {
   bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
   bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
   bindsym r exec --no-startup-id systemctl reboot, mode "default"
-  bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
+  bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
 
   bindsym Return mode "default"
   bindsym Escape mode "default"
@@ -107,3 +108,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym XF86MonBrightnessUp exec light -A 1 # increase screen brightness
 bindsym XF86MonBrightnessDown exec light -U 1 # decrease screen brightness
 
+
+
+# Setup monitors.
+# The monitors may flicker while setup is runnig.
+exec --no-startup-id bash ~/.config/bin/setup_monitors.sh
