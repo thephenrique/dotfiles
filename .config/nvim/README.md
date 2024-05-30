@@ -39,7 +39,7 @@ Just the necessary. \ (•◡•) /
 
 ### UI.
 
-- `zenburn`.
+- `zenburn` and `gruber-darker`.
   - Awesome theme.
 - `lualine.nvim`.
   - Awesome Statusline theme helper.
