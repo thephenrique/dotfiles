@@ -8,8 +8,18 @@ local function themeZenburn()
 	require("zenburn").setup()
 end
 
+local function themeGruberDarker()
+	if not pcall(require, "gruber-darker") then
+		print("Plugin: gruber-darker not found")
+		return
+	end
+
+	vim.cmd.colorscheme("gruber-darker")
+end
+
 local themes = {
 	zenburn = themeZenburn,
+	gruberDarker = themeGruberDarker,
 }
 
-themes.zenburn()
+themes.gruberDarker()
