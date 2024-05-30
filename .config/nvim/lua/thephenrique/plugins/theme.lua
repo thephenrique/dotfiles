@@ -1,3 +1,4 @@
 return {
-	"phha/zenburn.nvim",
+	-- "phha/zenburn.nvim",
+	"blazkowolf/gruber-darker.nvim",
 }

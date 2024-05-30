@@ -23,21 +23,24 @@ x = 0
 y = 0
 
 [font]
-size = 11.9
+# Iosevka font size.
+# size = 11.9
+# Comic font size.
+size = 12.2 # or 12.3
 
 [font.bold]
-# family = "FantasqueSansM Nerd Font Mono"
-family = "Iosevka Nerd Font Mono"
+# family = "Iosevka Nerd Font Mono"
+family = "ComicShannsMono Nerd Font Propo"
 style = "Bold"
 
 [font.italic]
-# family = "FantasqueSansM Nerd Font Mono"
-family = "Iosevka Nerd Font Mono"
+# family = "Iosevka Nerd Font Mono"
+family = "ComicShannsMono Nerd Font Propo"
 style = "Italic"
 
 [font.normal]
-# family = "FantasqueSansM Nerd Font Mono"
-family = "Iosevka Nerd Font Mono"
+# family = "Iosevka Nerd Font Mono"
+family = "ComicShannsMono Nerd Font Propo"
 style = "Regular"
 
 [font.offset]
