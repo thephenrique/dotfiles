@@ -4,6 +4,15 @@ Mappings for ¯\_(ツ)_/¯ .
 
 --]]
 
+-- Good to know...
+--
+-- :so ::: To source the current updated Neovim settings.
+-- :LspRestart ::: To restart the LSP, when it breaks.
+-- :checkhealth ::: To check if all Neovim features is working well.
+-- :Lazy ::: To manage the Neovim plugins with lazy.nvm.
+-- :Mason ::: To manage the Neovim LSP with mason.nvm.
+-- <C-f> ::: Use on Command Mode to allow Vim Motions during write/search/edit a command.
+
 -- Think of it as clear/done here ¯\_(ツ)_/¯ .
 -- But, any real problem, we have <ESC> and <C-c>.
 vim.keymap.set("i", "<C-l>", "<ESC>")
