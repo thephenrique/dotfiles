@@ -14,4 +14,9 @@ return {
 		"akinsho/git-conflict.nvim",
 		config = true,
 	},
+	{
+		-- Git improve diffs.
+		-- Mainly used for Git history.
+		"sindrets/diffview.nvim",
+	},
 }

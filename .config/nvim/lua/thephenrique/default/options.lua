@@ -23,8 +23,8 @@ vim.opt.winblend = 0
 vim.opt.pumblend = 0
 
 -- Cursor.
-vim.opt.guicursor = "a:blinkon1"
-vim.opt.cursorline = false
+vim.opt.guicursor = "a:blinkon0"
+vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 -- Line.

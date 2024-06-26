@@ -53,11 +53,11 @@ mason_lspconfig.setup({
 		"dockerls",
 		"docker_compose_language_service",
 
-		"clangd",
+		-- "clangd",
 		"cmake",
 		"bashls",
 		"gopls",
-		"kotlin_language_server",
+		-- "kotlin_language_server",
 		-- "shfmt",
 
 		"lua_ls",

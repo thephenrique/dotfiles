@@ -151,6 +151,12 @@ vim.keymap.set("n", "<leader>gs", "<Cmd>Neogit<CR>")
 vim.keymap.set("n", "<leader>gp", "<Cmd>Gitsigns preview_hunk<CR>")
 -- On changed line, Git Reset Hunk.
 vim.keymap.set("n", "<leader>gr", "<Cmd>Gitsigns reset_hunk<CR>")
+-- Toggle Git blame. Display on current line.
+vim.keymap.set("n", "<leader>gb", "<Cmd>Gitsigns toggle_current_line_blame<CR>")
+-- Diffview. Displays the entire Git history of current Buffer.
+vim.keymap.set("n", "<leader>gho", "<Cmd>:DiffviewFileHistory %<CR>")
+-- Diffview. Close Diffview.
+vim.keymap.set("n", "<leader>ghc", "<Cmd>:DiffviewClose<CR>")
 
 -- Git conflicts. High contrast!
 -- co ::: With Git conflicts, choose Current/Ours change.
