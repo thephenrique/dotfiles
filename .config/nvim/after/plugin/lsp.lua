@@ -44,7 +44,8 @@ mason_lspconfig.setup({
 	ensure_installed = {
 		"tsserver",
 		"eslint",
-		-- prettierd
+		-- prettierd - Changed because a unknown error os TypeScript files during format.
+		-- prettier - Current.
 		"html",
 		"cssls",
 		"jsonls",
@@ -69,10 +70,10 @@ require("neodev").setup({})
 
 local updated_capabilities = vim.lsp.protocol.make_client_capabilities()
 vim.tbl_deep_extend("force", updated_capabilities, require("cmp_nvim_lsp").default_capabilities())
-updated_capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
+updated_capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
 updated_capabilities.textDocument.completion.completionItem.snippetSupport = true -- Allow HTML and CSS completions.
 updated_capabilities.textDocument.completion.completionItem.insertReplaceSupport = false
-updated_capabilities.textDocument.codeLens = { dynamicRegistration = true }
+updated_capabilities.textDocument.codeLens = { dynamicRegistration = false }
 
 -- Auto setup LSP servers from Mason.
 local installed_servers = mason_lspconfig.get_installed_servers()
@@ -142,18 +143,18 @@ conform.setup({
 		-- Provides formatter to Lua (:Mason install stylua).
 		lua = { "stylua" },
 
-		-- Provides formatter to Web environment with Prettier (:Mason install prettierd).
-		javascript = { "prettierd" },
-		typescript = { "prettierd" },
-		javascriptreact = { "prettierd" },
-		typescriptreact = { "prettierd" },
-		css = { "prettierd" },
-		html = { "prettierd" },
-		json = { "prettierd" },
-		jsonc = { "prettierd" },
-		yaml = { "prettierd" },
-		graphql = { "prettierd" },
-		markdown = { "prettierd" },
+		-- Provides formatter to Web environment with Prettier (:Mason install prettierd?).
+		javascript = { "prettier" },
+		typescript = { "prettier" },
+		javascriptreact = { "prettier" },
+		typescriptreact = { "prettier" },
+		css = { "prettier" },
+		html = { "prettier" },
+		json = { "prettier" },
+		jsonc = { "prettier" },
+		yaml = { "prettier" },
+		graphql = { "prettier" },
+		markdown = { "prettier" },
 
 		-- Provides formatter to shell (:Mason install shfmt).
 		sh = { "shfmt" },
@@ -183,4 +184,5 @@ Troubleshooting
 --]]
 
 -- Check if conform are running the expected formatter or the LSP provided formatter.
+-- If all fail. Try change the formatter. ¯\_(ツ)_/¯
 -- :ConformInfo
