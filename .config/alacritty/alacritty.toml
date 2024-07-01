@@ -9,8 +9,11 @@ duration = 0
 draw_bold_text_with_bright_colors = true
 
 [cursor]
-style = "Block"
+blink_interval = 500
 unfocused_hollow = false
+[cursor.style]
+shape = "Block"
+blinking = "Always"
 
 [debug]
 render_timer = false

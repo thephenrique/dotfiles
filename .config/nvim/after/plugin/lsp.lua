@@ -35,7 +35,6 @@ vim.diagnostic.config({
 
 local lspconfig = require("lspconfig")
 local mason_lspconfig = require("mason-lspconfig")
-local lspconfig_utils = require("lspconfig.util")
 
 -- LSP servers management.
 require("mason").setup()
@@ -70,10 +69,10 @@ require("neodev").setup({})
 
 local updated_capabilities = vim.lsp.protocol.make_client_capabilities()
 vim.tbl_deep_extend("force", updated_capabilities, require("cmp_nvim_lsp").default_capabilities())
-updated_capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
+updated_capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
 updated_capabilities.textDocument.completion.completionItem.snippetSupport = true -- Allow HTML and CSS completions.
 updated_capabilities.textDocument.completion.completionItem.insertReplaceSupport = false
-updated_capabilities.textDocument.codeLens = { dynamicRegistration = false }
+updated_capabilities.textDocument.codeLens = { dynamicRegistration = true }
 
 -- Auto setup LSP servers from Mason.
 local installed_servers = mason_lspconfig.get_installed_servers()
@@ -83,7 +82,7 @@ for _, server_name in ipairs(installed_servers) do
 	})
 end
 
--- Setup Lua LSP server.
+-- Setup Lua LSP server - Custom setup.
 lspconfig.lua_ls.setup({
 	capabilities = updated_capabilities,
 	settings = {
@@ -101,7 +100,16 @@ lspconfig.lua_ls.setup({
 	},
 })
 
--- Setup Kotlin LSP server.
+-- Setup JSON LSP server - Custom setup.
+-- lspconfig.jsonls.setup({
+-- 	capabilities = updated_capabilities,
+-- 	-- Disable LSP formatter to use Prettier instead.
+-- 	init_options = {
+-- 		provideFormatter = false,
+-- 	},
+-- })
+
+-- Setup Kotlin LSP server - Custom setup.
 lspconfig.kotlin_language_server.setup({
 	capabilities = updated_capabilities,
 	settings = {
@@ -142,6 +150,7 @@ conform.setup({
 		css = { "prettierd" },
 		html = { "prettierd" },
 		json = { "prettierd" },
+		jsonc = { "prettierd" },
 		yaml = { "prettierd" },
 		graphql = { "prettierd" },
 		markdown = { "prettierd" },
@@ -166,3 +175,12 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		conform.format({ bufnr = args.buf, lsp_fallback = true })
 	end,
 })
+
+--[[
+
+Troubleshooting
+
+--]]
+
+-- Check if conform are running the expected formatter or the LSP provided formatter.
+-- :ConformInfo

@@ -23,7 +23,7 @@ vim.opt.winblend = 0
 vim.opt.pumblend = 0
 
 -- Cursor.
-vim.opt.guicursor = "n-v-c:blinkon500-blinkoff500"
+vim.opt.guicursor = "a:blinkon500-blinkoff500"
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
