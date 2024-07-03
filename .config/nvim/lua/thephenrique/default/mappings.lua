@@ -12,10 +12,14 @@ Mappings for ¯\_(ツ)_/¯ .
 -- :Lazy ::: To manage the Neovim plugins with lazy.nvm.
 -- :Mason ::: To manage the Neovim LSP with mason.nvm.
 -- <C-f> ::: Use on Command Mode to allow Vim Motions during write/search/edit a command.
+-- <C-l> ::: To hide the highlight search (aka hlsearch).
 
 -- Think of it as clear/done here ¯\_(ツ)_/¯ .
 -- But, any real problem, we have <ESC> and <C-c>.
-vim.keymap.set("i", "<C-l>", "<ESC>")
+vim.keymap.set("i", "<C-l>", "<Esc>")
+
+-- Easily hit escape in Terminal Mode.
+vim.keymap.set("t", "<Esc><Esc>", "<c-\\><c-n>")
 
 -- Move selected line up/down.
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -40,11 +44,11 @@ vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
 
 -- Resize vertical splits.
-vim.keymap.set("n", "<C-w>>", "20<C-w>>")
-vim.keymap.set("n", "<C-w><", "20<C-w><")
+vim.keymap.set("n", "<M-.>", "5<C-w>>")
+vim.keymap.set("n", "<M-,>", "5<C-w><")
 -- Resize horizontal splits.
-vim.keymap.set("n", "<C-w>.", "10<C-w>+")
-vim.keymap.set("n", "<C-w>,", "10<C-w>-")
+vim.keymap.set("n", "<C-M-.>", "5<C-w>+")
+vim.keymap.set("n", "<C-M-,>", "5<C-w>-")
 
 -- General open file in vertical split.
 -- Inside of nvim-tree, Telescope, ...
@@ -78,6 +82,15 @@ And documentation for builtin mappings of some plugins.
 -- za ::: Fold current.
 -- zM ::: Fold all.
 -- zR ::: Unfold all.
+
+-- Code Actions.
+vim.keymap.set("n", "<leader>ca", function()
+	vim.lsp.buf.code_action()
+end)
+-- Code Rename.
+vim.keymap.set("n", "<leader>cr", function()
+	vim.lsp.buf.rename()
+end)
 
 --[[
 
