@@ -20,7 +20,9 @@ set $right l
 # The smaller it is, the faster it will be for the autorepeat to start. 
 # - 35ms to retry the action after it started.
 # The smaller it is, the faster it will be for autorepeat to perform the action again.
-set $xset_rate xset r rate 200 35
+# 200 35 - For resolutions below of 3840x2160.
+# 150 45 - For resolutions above of 3840x2160.
+set $xset_rate xset r rate 210 40 
 exec --no-startup-id $xset_rate
 
 
@@ -96,7 +98,9 @@ bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+Return exec i3-sensible-terminal
 
 # Start screenshot.
-bindsym Print exec gnome-screenshot -i
+# bindsym Print exec gnome-screenshot -i
+# Start screenshot: Flameshot.
+bindsym $mod+i exec "flameshot gui"
 
 # Audio keyboard control.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
