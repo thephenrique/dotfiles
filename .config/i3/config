@@ -28,9 +28,7 @@ exec --no-startup-id $xset_rate
 
 
 # Font.
-# font pango:Source Code Pro 11
-# font pango:Iosevka Nerd Font Mono 10
-font pango:Iosevka NF 11
+font pango:Iosevka Nerd Font Mono 12
 
 # Orientation for new workspaces.
 default_orientation horizontal
