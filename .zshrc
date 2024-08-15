@@ -24,7 +24,7 @@ export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:/usr/local/go/bin/bin
 export GOPATH=/usr/local/go/bin
 
 # Add Doom Emacs. ¯\_(ツ)_/¯
-export PATH=$PATH:$HOME/.emacs.d/bin
+export PATH=$PATH:$HOME/.emacs.d/bin:$HOME/.config/emacs/bin
 
 # Current work PATH Environment variables.
 
