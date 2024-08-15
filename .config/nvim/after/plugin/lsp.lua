@@ -44,8 +44,8 @@ mason_lspconfig.setup({
 	ensure_installed = {
 		"tsserver",
 		"eslint",
-		-- prettierd - Changed because a unknown error os TypeScript files during format.
-		-- prettier - Current.
+		-- prettierd - Changed. Unknown error during format.
+		-- prettier - Enabled.
 		"html",
 		"cssls",
 		"jsonls",
@@ -143,7 +143,7 @@ conform.setup({
 		-- Provides formatter to Lua (:Mason install stylua).
 		lua = { "stylua" },
 
-		-- Provides formatter to Web environment with Prettier (:Mason install prettierd?).
+		-- Provides formatter to Web environment with Prettier (:Mason install prettier).
 		javascript = { "prettier" },
 		typescript = { "prettier" },
 		javascriptreact = { "prettier" },

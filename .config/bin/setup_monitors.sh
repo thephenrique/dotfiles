@@ -13,8 +13,8 @@ xrandr -s 3840x2160
 sleep 2
 
 # 96 Small (default)
-# 120 Medium 125% *
-# 144 Larger 150%
+# 120 Medium 125%
+# 144 Larger 150% *
 # 192 Extra Large 200%
 # 240 Custom 250%
 xrandr --dpi 144
