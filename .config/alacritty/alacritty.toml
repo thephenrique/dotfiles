@@ -1,4 +1,4 @@
-import = ["~/.config/alacritty/theme.toml"]
+import = ["~/.config/alacritty/gnome-terminal-theme.toml"]
 live_config_reload = true
 
 [bell]
@@ -26,24 +26,24 @@ x = 0
 y = 0
 
 [font]
-# Iosevka font size.
-# size = 11.9
-# Comic font size.
-size = 12.2 # or 12.3
+size = 12
 
 [font.bold]
+family = "Jetbrains Mono"
 # family = "Iosevka Nerd Font Mono"
-family = "ComicShannsMono Nerd Font Propo"
+# family = "ComicShannsMono Nerd Font Propo"
 style = "Bold"
 
 [font.italic]
+family = "Jetbrains Mono"
 # family = "Iosevka Nerd Font Mono"
-family = "ComicShannsMono Nerd Font Propo"
+# family = "ComicShannsMono Nerd Font Propo"
 style = "Italic"
 
 [font.normal]
+family = "Jetbrains Mono"
 # family = "Iosevka Nerd Font Mono"
-family = "ComicShannsMono Nerd Font Propo"
+# family = "ComicShannsMono Nerd Font Propo"
 style = "Regular"
 
 [font.offset]
