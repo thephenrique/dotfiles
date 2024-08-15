@@ -14,10 +14,6 @@ Mappings for ¯\_(ツ)_/¯ .
 -- <C-f> ::: Use on Command Mode to allow Vim Motions during write/search/edit a command.
 -- <C-l> ::: To hide the highlight search (aka hlsearch).
 
--- Think of it as clear/done here ¯\_(ツ)_/¯ .
--- But, any real problem, we have <ESC> and <C-c>.
-vim.keymap.set("i", "<C-l>", "<Esc>")
-
 -- Easily hit escape in Terminal Mode.
 vim.keymap.set("t", "<Esc><Esc>", "<c-\\><c-n>")
 
@@ -44,11 +40,11 @@ vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
 
 -- Resize vertical splits.
-vim.keymap.set("n", "<M-.>", "5<C-w>>")
-vim.keymap.set("n", "<M-,>", "5<C-w><")
+vim.keymap.set("n", "<M-Right>", "5<C-w>>")
+vim.keymap.set("n", "<M-Left>", "5<C-w><")
 -- Resize horizontal splits.
-vim.keymap.set("n", "<C-M-.>", "5<C-w>+")
-vim.keymap.set("n", "<C-M-,>", "5<C-w>-")
+vim.keymap.set("n", "<M-Up>", "5<C-w>+")
+vim.keymap.set("n", "<M-Down>", "5<C-w>-")
 
 -- General open file in vertical split.
 -- Inside of nvim-tree, Telescope, ...

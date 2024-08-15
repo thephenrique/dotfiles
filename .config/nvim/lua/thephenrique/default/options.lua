@@ -21,10 +21,11 @@ vim.opt.clipboard:append({ "unnamedplus" })
 vim.opt.termguicolors = true
 vim.opt.winblend = 0
 vim.opt.pumblend = 0
+-- vim.opt.background = "light"
 
 -- Cursor.
 vim.opt.guicursor = "a:blinkon500-blinkoff500"
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 vim.opt.scrolloff = 10
 
 -- Line.
@@ -64,7 +65,7 @@ vim.opt.inccommand = "split"
 
 -- Keys.
 vim.opt.joinspaces = true
-vim.opt.showmatch = true
+vim.opt.showmatch = false
 
 -- Search and replace.
 vim.opt.hlsearch = true

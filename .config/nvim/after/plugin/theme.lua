@@ -1,4 +1,5 @@
 -- Credits to Emacs.
+
 local function themeZenburn()
 	if not pcall(require, "zenburn") then
 		print("Plugin: zenburn not found")
@@ -17,9 +18,21 @@ local function themeGruberDarker()
 	vim.cmd.colorscheme("gruber-darker")
 end
 
+local function themeDoomOne()
+	if not pcall(require, "doom-one") then
+		print("Plugin: doom-one not found")
+		return
+	end
+
+	vim.opt.background = "light"
+	vim.g.doom_one_plugin_telescope = true
+	vim.cmd.colorscheme("doom-one")
+end
+
 local themes = {
 	zenburn = themeZenburn,
 	gruberDarker = themeGruberDarker,
+	doomOne = themeDoomOne,
 }
 
-themes.gruberDarker()
+themes.doomOne()
