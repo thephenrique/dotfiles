@@ -46,6 +46,14 @@ vim.keymap.set("n", "<M-Left>", "5<C-w><")
 vim.keymap.set("n", "<M-Up>", "5<C-w>+")
 vim.keymap.set("n", "<M-Down>", "5<C-w>-")
 
+-- Move between tabs.
+--
+-- Without cool mappings:
+-- :tabnew ::: Create a new tab.
+-- :tabclose ::: Close the current tab.
+vim.keymap.set("n", "<Right>", "gt")
+vim.keymap.set("n", "<Left>", "gT")
+
 -- General open file in vertical split.
 -- Inside of nvim-tree, Telescope, ...
 -- <C-v> ::: to open a file in vertical split.
