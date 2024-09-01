@@ -29,10 +29,27 @@ local function themeDoomOne()
 	vim.cmd.colorscheme("doom-one")
 end
 
+local function themeModus()
+	if not pcall(require, "modus-themes") then
+		print("Plugin: modus-themes not found")
+		return
+	end
+
+	require("modus-themes").setup({
+		style = "modus_vivendi",
+		on_colors = function(colors)
+			colors.bg_dim = colors.bg_main
+		end,
+	})
+
+	vim.cmd.colorscheme("modus")
+end
+
 local themes = {
 	zenburn = themeZenburn,
 	gruberDarker = themeGruberDarker,
 	doomOne = themeDoomOne,
+	modus = themeModus,
 }
 
-themes.doomOne()
+themes.modus()

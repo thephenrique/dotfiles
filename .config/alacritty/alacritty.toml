@@ -26,23 +26,31 @@ x = 0
 y = 0
 
 [font]
-size = 12
+# size = 12
+size = 13 # For: Iosevka Nerd Font Mono
+
+# Iosevka Comfy repository.
+# The TTFs already exist there.
+# @LINK https://github.com/protesilaos/iosevka-comfy
 
 [font.bold]
-family = "Jetbrains Mono"
+# family = "Jetbrains Mono"
 # family = "Iosevka Nerd Font Mono"
+family = "Iosevka Comfy"
 # family = "ComicShannsMono Nerd Font Propo"
 style = "Bold"
 
 [font.italic]
-family = "Jetbrains Mono"
+# family = "Jetbrains Mono"
 # family = "Iosevka Nerd Font Mono"
+family = "Iosevka Comfy"
 # family = "ComicShannsMono Nerd Font Propo"
 style = "Italic"
 
 [font.normal]
-family = "Jetbrains Mono"
+# family = "Jetbrains Mono"
 # family = "Iosevka Nerd Font Mono"
+family = "Iosevka Comfy"
 # family = "ComicShannsMono Nerd Font Propo"
 style = "Regular"
 
