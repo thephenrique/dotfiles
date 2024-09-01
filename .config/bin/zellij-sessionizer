@@ -1,0 +1,51 @@
+#!/bin/bash
+
+# Allowed directories.
+dirs=(
+  ~/Documents/work
+  ~/Documents/work/apps
+  ~/Documents/personal
+  ~/Documents/personal/apps
+  ~/.config)
+
+zellij_session_handler() {
+  selected_path=$(find ${dirs[@]} -mindepth 1 -maxdepth 1 -type d | fzf)
+
+  # Fallback.
+  # Prevents exiting the current Zellij session if no directory has been selected.
+  if [[ $selected_path == "" ]]; then
+    if [[ $1 == "" ]]; then
+      zellij $@
+    else
+      zellij attach $1
+    fi
+  fi
+
+  selected_name=$(basename "$selected_path" | tr . _)
+  session_name=$(zellij list-sessions -n -s | grep -E "^$selected_name$")
+
+  if [[ $session_name == "" ]]; then
+    # Create a new Zellij session.
+    cd $selected_path
+    zellij attach --create $selected_name
+  else
+    # Attach to a existing Zellij session.
+    zellij attach $session_name
+  fi
+}
+
+# <C-t> ::: Start Zellij with fzf.
+zellij_session_handler
+
+zfile="/tmp/zellij_last_session"
+sleep .1
+
+# Main loop: Wrapper to allow "detach" inside of Zellij.
+while [ -f "$zfile" ]; do
+  last_session="$(/bin/cat $zfile)"
+  rm "$zfile"
+
+  zellij_session_handler $last_session
+
+  sleep .1
+done

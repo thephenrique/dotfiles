@@ -1,0 +1,6 @@
+layout {
+	pane command="bash" {
+		args "-c" "echo $ZELLIJ_SESSION_NAME > /tmp/zellij_last_session"
+		close_on_exit true
+	}
+}
