@@ -20,9 +20,9 @@ set $right l
 # The smaller it is, the faster it will be for the autorepeat to start. 
 # - 35ms to retry the action after it started.
 # The smaller it is, the faster it will be for autorepeat to perform the action again.
-# 200 35 - For resolutions below of 3840x2160.
+# 200 40 - For resolutions below of 3840x2160.
 # 150 45 - For resolutions above of 3840x2160.
-set $xset_rate xset r rate 210 40 
+set $xset_rate xset r rate 200 40
 exec --no-startup-id $xset_rate
 
 

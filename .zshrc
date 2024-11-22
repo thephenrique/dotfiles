@@ -25,6 +25,9 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:/usr/local/go/bin/bin
 export GOPATH=/usr/local/go/bin
 
+# Add Zig programming language.
+export PATH=$PATH:/usr/local/zig
+
 # Add Doom Emacs. ¯\_(ツ)_/¯
 export PATH=$PATH:$HOME/.emacs.d/bin:$HOME/.config/emacs/bin
 
