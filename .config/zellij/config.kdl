@@ -53,8 +53,10 @@ keybinds {
         bind "j" "Down" { MoveFocus "Down"; }
         bind "k" "Up" { MoveFocus "Up"; }
         bind "p" { SwitchFocus; }
-        bind "n" { NewPane; SwitchToMode "Normal"; }
-        bind "d" { NewPane "Down"; SwitchToMode "Normal"; }
+        // bind "n" { NewPane; SwitchToMode "Normal"; }
+        bind "v" { NewPane; SwitchToMode "Locked"; }
+        // bind "d" { NewPane "Down"; SwitchToMode "Normal"; }
+        bind "s" { NewPane "Down"; SwitchToMode "Locked"; }
         bind "r" { NewPane "Right"; SwitchToMode "Normal"; }
         bind "x" { CloseFocus; SwitchToMode "Normal"; }
         bind "f" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
@@ -104,7 +106,7 @@ keybinds {
 
         bind "Ctrl s" { SwitchToMode "Normal"; }
 
-        bind "e" { EditScrollback; SwitchToMode "Normal"; }
+        bind "e" { EditScrollback; SwitchToMode "Locked"; }
         bind "/" { SwitchToMode "EnterSearch"; SearchInput 0; }
         bind "Ctrl c" { ScrollToBottom; SwitchToMode "Normal"; }
         bind "g" { ScrollToTop; }
@@ -158,17 +160,23 @@ keybinds {
         bind "d" { Detach; }
         bind "w" {
             // Zellij "session-manager" with custom fzf to switch between sessions.
+            //
+            // Detach current Zellij session and start the fzf.
             NewTab {
-              layout "/home/pedrosilva/.config/zellij/layouts/switch_session.kdl"
+              layout "/home/pedrosilva/.config/zellij/layouts/fzf_session.kdl"
             };
             SwitchToMode "Locked";
             Detach;
-
-            // LaunchOrFocusPlugin "session-manager" {
-            //     floating true
-            //     move_to_focused_tab true
-            // };
-            // SwitchToMode "Normal"
+        }
+        bind "s" {
+            // Zellij "session-manager". Toggle current/previous session.
+            //
+            // Detach current Zellij session and attach to the previous session.
+            NewTab {
+              layout "/home/pedrosilva/.config/zellij/layouts/toggle_session.kdl"
+            };
+            SwitchToMode "Locked";
+            Detach;
         }
     }
     // tmux {
