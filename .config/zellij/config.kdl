@@ -154,11 +154,19 @@ keybinds {
         bind "Esc" { UndoRenamePane; SwitchToMode "Pane"; }
     }
     session {
+        unbind "w"
+
         bind "Ctrl o" { SwitchToMode "Normal"; }
 
         bind "Ctrl s" { SwitchToMode "Scroll"; }
-        bind "d" { Detach; }
-        bind "w" {
+        bind "d" {
+            NewTab {
+              layout "/home/pedrosilva/.config/zellij/layouts/force_quit.kdl"
+            };
+            SwitchToMode "Locked";
+            Detach; 
+        }
+        bind "t" {
             // Zellij "session-manager" with custom fzf to switch between sessions.
             //
             // Detach current Zellij session and start the fzf.
