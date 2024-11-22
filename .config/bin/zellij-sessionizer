@@ -16,7 +16,7 @@ dirs=(
   ~/.config)
 
 start_session_cache() {
-  rm "$toggle_controller"
+  rm -f "$toggle_controller"
   echo "" >"$previous_session_name"
   echo "" >"$current_session_name"
 }
