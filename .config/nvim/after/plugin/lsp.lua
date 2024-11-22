@@ -177,6 +177,14 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	end,
 })
 
+-- Enable native Inlay Hint on Neovim:
+-- vim.lsp.inlay_hint.enable(true)
+--
+-- Must setup settings of each LSP (tsserver, gopls , ...).
+--
+-- Setup settings examples:
+-- https://github.com/MysticalDevil/inlay-hints.nvim#languages
+
 --[[
 
 Troubleshooting

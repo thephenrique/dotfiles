@@ -29,8 +29,8 @@ vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- When next/previous ::: * (next) ::: # (previous) :::
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+-- vim.keymap.set("n", "n", "nzzzv")
+-- vim.keymap.set("n", "N", "Nzzzv")
 
 -- Paste, but not replace the yanked text.
 vim.keymap.set("x", "<leader>p", [["_dP]])
@@ -148,6 +148,9 @@ vim.keymap.set("n", "<leader>;t", ":NvimTreeFindFile<CR>")
 -- x ::: Cut file/directory.
 -- d ::: Delete file/directory.
 --
+-- m ::: Toggle Mark for bulk operations.
+-- bd ::: Delete marked items (files/directories).
+--
 -- <Tab> ::: Preview file without close NvimTreee.
 -- o ::: Open to Buffer.
 -- s ::: Run system.
@@ -197,3 +200,15 @@ Mappings for Markdown integration.
 
 -- Markdown Preview.
 -- :MarkdownPreview ::: Open Markdown preview.
+--
+
+--[[
+
+Mappings for "Compile Mode" from compile-mode.nvim.
+
+--]]
+
+-- :Compile ::: To accept an compile command. Example: go run
+-- :Recompile ::: To... Recompile. :)
+-- :NextError ::: To move the cursor to the next error in the source code (at source code Buffer).
+-- :PrevError ::: To move the cursor to the previous error in the source code (at source code Buffer).

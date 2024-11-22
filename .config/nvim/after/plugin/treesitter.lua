@@ -32,10 +32,14 @@ require("nvim-treesitter.configs").setup({
 	sync_install = false,
 	auto_install = true,
 	indent = {
+		-- It may cause slowdowns in large files (like 20k lines or 20k columns).
+		-- Try disable Treesitter.
 		enable = true,
 		disable = {},
 	},
 	highlight = {
+		-- It may cause slowdowns in large files (like 20k lines or 20k columns).
+		-- Try disable Treesitter.
 		enable = true,
 		disable = {},
 		additional_vim_regex_highlighting = false,
