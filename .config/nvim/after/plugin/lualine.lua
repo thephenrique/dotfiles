@@ -6,7 +6,8 @@ end
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
-		theme = "horizon",
+		theme = "zenburn",
+		-- theme = "horizon",
 		-- theme = "Tomorrow", -- Only for DoomOne (light)
 		section_separators = { left = "", right = "" },
 		component_separators = { left = "", right = "" },

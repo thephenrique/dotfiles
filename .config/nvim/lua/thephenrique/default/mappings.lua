@@ -26,8 +26,8 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 -- When join line.
 vim.keymap.set("n", "J", "mzJ`z")
 -- When scroll up/down.
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
+-- vim.keymap.set("n", "<C-d>", "<C-d>zz")
+-- vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- When next/previous ::: * (next) ::: # (previous) :::
 -- vim.keymap.set("n", "n", "nzzzv")
 -- vim.keymap.set("n", "N", "Nzzzv")

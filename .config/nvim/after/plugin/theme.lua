@@ -38,9 +38,14 @@ local function themeModus()
 	require("modus-themes").setup({
 		style = "modus_vivendi",
 		on_colors = function(colors)
+			colors.bg_diff_context = "#ff00ff"
 			colors.bg_dim = colors.bg_main
 		end,
 	})
+
+	-- Multiple Cursors: `vim-multi-cursor` plugin.
+	-- Setup theme.
+	vim.g.VM_theme = "codedark"
 
 	vim.cmd.colorscheme("modus")
 end

@@ -22,7 +22,7 @@ set $right l
 # The smaller it is, the faster it will be for autorepeat to perform the action again.
 # 200 40 - For resolutions below of 3840x2160.
 # 150 45 - For resolutions above of 3840x2160.
-set $xset_rate xset r rate 200 40
+set $xset_rate xset r rate 190 35
 exec --no-startup-id $xset_rate
 
 

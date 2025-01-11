@@ -6,6 +6,11 @@ vim.cmd([[
   augroup END
 ]])
 
+-- Force C filetype.
+vim.cmd([[
+  let g:c_syntax_for_h = 1
+]])
+
 -- Set local settings for Terminal buffers.
 vim.api.nvim_create_autocmd("TermOpen", {
 	group = vim.api.nvim_create_augroup("custom-term-open", {}),
