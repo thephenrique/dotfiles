@@ -50,11 +50,17 @@ local function themeModus()
 	vim.cmd.colorscheme("modus")
 end
 
+local function themeGruvbox()
+	-- Soft contrast.
+	vim.cmd.colorscheme("gruvbox-material")
+end
+
 local themes = {
 	zenburn = themeZenburn,
 	gruberDarker = themeGruberDarker,
 	doomOne = themeDoomOne,
 	modus = themeModus,
+	gruvbox = themeGruvbox,
 }
 
-themes.modus()
+themes.gruvbox()

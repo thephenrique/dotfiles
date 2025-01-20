@@ -23,8 +23,8 @@ vim.opt.winblend = 0
 vim.opt.pumblend = 0
 -- vim.opt.background = "light"
 
--- Cursor.
-vim.opt.guicursor = "a:blinkon500-blinkoff500"
+-- Cursor (default).
+-- vim.opt.guicursor = "a:blinkon500-blinkoff500"
 vim.opt.cursorline = false
 vim.opt.scrolloff = 2
 

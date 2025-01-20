@@ -3,4 +3,5 @@ return {
 	"blazkowolf/gruber-darker.nvim",
 	"NTBBloodbath/doom-one.nvim",
 	"miikanissi/modus-themes.nvim",
+	"sainnhe/gruvbox-material",
 }

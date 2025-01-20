@@ -35,24 +35,24 @@ size = 14
 [font.bold]
 # family = "Jetbrains Mono"
 # family = "Iosevka Nerd Font Mono"
-family = "Iosevka Comfy"
-# family = "Iosevka Fixed SS07"
+# family = "Iosevka Comfy"
+family = "Iosevka Fixed SS07"
 # family = "ComicShannsMono Nerd Font Propo"
 style = "Bold"
 
 [font.italic]
 # family = "Jetbrains Mono"
 # family = "Iosevka Nerd Font Mono"
-family = "Iosevka Comfy"
-# family = "Iosevka Fixed SS07"
+# family = "Iosevka Comfy"
+family = "Iosevka Fixed SS07"
 # family = "ComicShannsMono Nerd Font Propo"
 style = "Italic"
 
 [font.normal]
 # family = "Jetbrains Mono"
 # family = "Iosevka Nerd Font Mono"
-family = "Iosevka Comfy"
-# family = "Iosevka Fixed SS07"
+# family = "Iosevka Comfy"
+family = "Iosevka Fixed SS07"
 # family = "ComicShannsMono Nerd Font Propo"
 style = "Regular"
 

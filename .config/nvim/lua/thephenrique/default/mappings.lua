@@ -16,6 +16,11 @@ Mappings for ¯\_(ツ)_/¯ .
 
 -- Easily hit escape in Terminal Mode.
 vim.keymap.set("t", "<Esc><Esc>", "<c-\\><c-n>")
+-- Clear highlight. The <C-l> has overrited.
+vim.keymap.set("n", "<leader>l", function()
+	vim.cmd.noh()
+	vim.cmd.redraw()
+end)
 
 -- Move selected line up/down.
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -33,11 +38,21 @@ vim.keymap.set("n", "J", "mzJ`z")
 -- vim.keymap.set("n", "N", "Nzzzv")
 
 -- Paste, but not replace the yanked text.
-vim.keymap.set("x", "<leader>p", [["_dP]])
+-- vim.keymap.set("x", "<leader>p", [["_dP]])
+
+-- 6 is too far from CTRL. Alternate between two buffers.
+vim.keymap.set("n", "<C-p>", "<C-6>")
 
 -- Display up/down Quickfix items on buffer.
-vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
+-- :copen ::: Open current list.
+vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>zz")
+
+-- Move between splits.
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
 
 -- Resize vertical splits.
 vim.keymap.set("n", "<M-Right>", "5<C-w>>")
@@ -159,6 +174,7 @@ vim.keymap.set("n", "<leader>;t", ":NvimTreeFindFile<CR>")
 -- <leader>;r ::: Go to References.
 -- <leader>;f ::: Find Files.
 -- <leader>;i ::: Find Directories and focus with nvim-tree.
+-- <leader>;m ::: Go to Implementation.
 -- <leader>;g ::: Live Grep.
 -- <leader>;s ::: Grep String.
 -- <leader>;b ::: Show Buffers.
