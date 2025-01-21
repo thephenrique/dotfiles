@@ -1,25 +1,41 @@
 #!/usr/bin/env bash
 
+# Allowed directories to fzf.
+dirs=(
+  ~/Documents/work
+  ~/Documents/work/apps
+  ~/Documents/personal
+  ~/Documents/personal/apps
+  ~/.config)
+
 if [[ $# -eq 1 ]]; then
-  selected=$1
+  selected_path=$1
 else
-  selected=$(find ~/Documents/work ~/Documents/work/apps ~/Documents/personal ~/Documents/personal/apps ~/Documents/personal/apps/neovim -mindepth 1 -maxdepth 1 -type d | fzf)
+  selected_path=$(find ${dirs[@]} -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
-if [[ -z $selected ]]; then
+if [[ -z $selected_path ]]; then
   exit 0
 fi
 
-selected_name=$(basename "$selected" | tr . _)
+selected_name=$(basename "$selected_path" | tr . _)
 tmux_running=$(pgrep tmux)
 
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-  tmux new-session -s $selected_name -c $selected
+# if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+# Start tmux session (attach or new).
+if [[ -z $TMUX ]]; then
+  tmux attach -t $selected_name 2>/dev/null
+  if [ ! $? -eq 0 ]; then
+    tmux new-session -s $selected_name -c $selected_path
+  fi
+
   exit 0
 fi
 
+# Handle (new and/or switch) sessions inside of tmux.
+
 if ! tmux has-session -t=$selected_name 2>/dev/null; then
-  tmux new-session -ds $selected_name -c $selected
+  tmux new-session -ds $selected_name -c $selected_path
 fi
 
 tmux switch-client -t $selected_name

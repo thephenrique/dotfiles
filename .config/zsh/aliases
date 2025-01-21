@@ -8,9 +8,9 @@ export VISUAL="nvim"
 #
 
 # Open tmux sessions with fuzzy finder.
-# bindkey -s '^t' '~/.config/bin/tmux-sessionizer\n'
+bindkey -s '^t' '~/.config/bin/tmux-sessionizer\n'
 # Open Zellij sessions with fuzzy finder.
-bindkey -s '^t' '~/.config/bin/zellij-sessionizer\n'
+# bindkey -s '^t' '~/.config/bin/zellij-sessionizer\n'
 
 #
 # Current work helpers.
