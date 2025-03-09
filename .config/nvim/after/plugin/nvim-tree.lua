@@ -24,7 +24,10 @@ require("nvim-tree").setup({
 		update_cwd = true,
 	},
 	filters = {
-		dotfiles = true,
+		dotfiles = false,
+	},
+	git = {
+		ignore = false,
 	},
 	live_filter = {
 		prefix = "[FILTER]: ",

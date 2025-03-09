@@ -42,7 +42,7 @@ require("mason").setup()
 -- Auto install LSP servers with Mason.
 mason_lspconfig.setup({
 	ensure_installed = {
-		"tsserver",
+		"ts_ls",
 		"eslint",
 		-- prettierd - Changed. Unknown error during format.
 		-- prettier - Enabled.
