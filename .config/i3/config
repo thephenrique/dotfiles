@@ -118,4 +118,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # Setup monitors.
 # The monitors may flicker while setup is runnig.
-exec --no-startup-id bash ~/.config/bin/setup_monitors.sh
+exec --no-startup-id bash ~/.config/bin/setup_monitors.sh "hdmi-1"
+
+# Shortcut to enable just the Notebook monitor.
+bindsym $mod+F4 exec --no-startup-id bash ~/.config/bin/setup_monitors.sh "notebook"
