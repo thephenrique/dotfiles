@@ -35,6 +35,7 @@ local function themeModus()
 		return
 	end
 
+	---@diagnostic disable-next-line: missing-fields
 	require("modus-themes").setup({
 		style = "modus_vivendi",
 		on_colors = function(colors)
@@ -63,4 +64,4 @@ local themes = {
 	gruvbox = themeGruvbox,
 }
 
-themes.gruvbox()
+themes.zenburn()

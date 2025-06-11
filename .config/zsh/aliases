@@ -1,52 +1,12 @@
 #!/usr/bin/env bash
 
+alias vim="nvim"
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-#
 # Binds.
-#
 
 # Open tmux sessions with fuzzy finder.
 bindkey -s '^t' '~/.config/bin/tmux-sessionizer\n'
 # Open Zellij sessions with fuzzy finder.
 # bindkey -s '^t' '~/.config/bin/zellij-sessionizer\n'
-
-#
-# Current work helpers.
-#
-
-# Current work: Lint automation.
-alias olympuslint="yarn lint && yarn check:typescript && yarn test:ci"
-alias cerberuslint="yarn typecheck && yarn lint && yarn test:ci"
-
-# Current work: tmux aliases.
-# alias tmuxolympus="tmux new-session -s 'olympus' -c '$HOME/Documents/work/Gympass/apps/olympus'"    # -d (detach and switch later)
-#tmux kill-server
-#tmux kill-session -t "olympus"
-#tmux attach
-#tmux attach-session -t "olympus"
-#tmux switch-client -t "olympus"
-#tmux new-window -n "olympus" "yarn webpack serve"
-
-#
-# Helpers.
-#
-
-# Grep only Jest failed files from large project.
-alias testfailfiles="yarn jest --silent 2>&1 | grep 'FAIL' | sort | uniq"
-
-#
-# Monitor settings.
-#
-# xrandr --listactivemonitors
-
-LAPTOP_MONITOR="eDP-1"
-EXTERNAL_MONITOR="HDMI-1"
-
-# Setup external primary monitor.
-alias sethdmi="xrandr --output $EXTERNAL_MONITOR --primary --right-of $LAPTOP_MONITOR"
-alias setnohdmi="xrandr --output $LAPTOP_MONITOR --primary"
-# Turn on/off laptop monitor (right|left*).
-alias setnoteon="xrandr --output $LAPTOP_MONITOR --left-of $EXTERNAL_MONITOR --auto"
-alias setnoteoff="xrandr --output $LAPTOP_MONITOR --off"

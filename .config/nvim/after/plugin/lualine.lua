@@ -6,8 +6,8 @@ end
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
-		theme = "zenburn",
-		-- theme = "horizon",
+		-- theme = "zenburn", -- Good for Gruvbox theme.
+		theme = "horizon", -- Good for Zenburn theme.
 		-- theme = "Tomorrow", -- Only for DoomOne (light)
 		section_separators = { left = "", right = "" },
 		component_separators = { left = "", right = "" },

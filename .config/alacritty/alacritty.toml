@@ -27,7 +27,7 @@ x = 0
 y = 0
 
 [font]
-size = 14
+size = 13
 
 # Iosevka Comfy repository.
 # The TTFs already exist there.
@@ -37,7 +37,8 @@ size = 14
 # family = "Jetbrains Mono"
 # family = "Iosevka Nerd Font Mono"
 # family = "Iosevka Comfy"
-family = "Iosevka Fixed SS07"
+# family = "Iosevka Fixed SS07"
+family = "DroidSansM Nerd Font Mono"
 # family = "ComicShannsMono Nerd Font Propo"
 style = "Bold"
 
@@ -45,7 +46,8 @@ style = "Bold"
 # family = "Jetbrains Mono"
 # family = "Iosevka Nerd Font Mono"
 # family = "Iosevka Comfy"
-family = "Iosevka Fixed SS07"
+# family = "Iosevka Fixed SS07"
+family = "DroidSansM Nerd Font Mono"
 # family = "ComicShannsMono Nerd Font Propo"
 style = "Italic"
 
@@ -53,7 +55,8 @@ style = "Italic"
 # family = "Jetbrains Mono"
 # family = "Iosevka Nerd Font Mono"
 # family = "Iosevka Comfy"
-family = "Iosevka Fixed SS07"
+# family = "Iosevka Fixed SS07"
+family = "DroidSansM Nerd Font Mono"
 # family = "ComicShannsMono Nerd Font Propo"
 style = "Regular"
 
