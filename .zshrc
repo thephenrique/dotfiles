@@ -48,3 +48,11 @@ export PATH=$PATH:$HOME/.josie
 
 # Add GPG for GitHub.
 export GPG_TTY=$(tty)
+
+# pnpm
+export PNPM_HOME="/home/pedrosilva/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

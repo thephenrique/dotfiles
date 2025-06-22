@@ -38,6 +38,16 @@ turnOnHDMI1Monitor() {
   i3-msg restart
 }
 
+turnOnBothMonitors() {
+  xrandr --output "HDMI-1" --auto --primary --left-of "eDP-1" --scale 1x1 --output "eDP-1" --auto
+  sleep 2
+
+  xrandr --dpi 144
+  sleep 2
+
+  i3-msg restart
+}
+
 if [[ "$MONITOR" == "notebook" ]]; then
   turnOnNotebookMonitor
   exit 0
@@ -48,4 +58,9 @@ if [[ "$MONITOR" == "hdmi-1" ]]; then
   exit 0
 fi
 
-echo "Please, specify the monitor: notebook, hdmi-1."
+if [[ "$MONITOR" == "both" ]]; then
+  turnOnBothMonitors
+  exit 0
+fi
+
+echo "Please, specify the monitor: notebook, hdmi-1, both."
