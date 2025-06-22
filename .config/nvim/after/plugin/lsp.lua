@@ -159,7 +159,7 @@ conform.setup({
 		-- Provides formatter to shell (:Mason install shfmt).
 		sh = { "shfmt" },
 
-		-- ...
+		-- Provides formatter to XML (:Mason install xmlformatter).
 		xml = { "xmlformatter" },
 	},
 	formatters = {
