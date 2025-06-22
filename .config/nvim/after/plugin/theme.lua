@@ -56,12 +56,31 @@ local function themeGruvbox()
 	vim.cmd.colorscheme("gruvbox-material")
 end
 
+local function themeColorbuddy()
+	local ok, colorbuddy = pcall(require, "colorbuddy")
+	if not ok then
+		print("Plugin: colorbuddy not found")
+		return
+	end
+
+	vim.cmd.colorscheme("gruvbuddy")
+
+	local Group = colorbuddy.Group
+	local Color = colorbuddy.Color
+	local colors = colorbuddy.colors
+
+	-- Perfection.
+	Color.new("darkBlue", "#324c5d")
+	Group.new("Visual", nil, colors.darkBlue)
+end
+
 local themes = {
 	zenburn = themeZenburn,
 	gruberDarker = themeGruberDarker,
 	doomOne = themeDoomOne,
 	modus = themeModus,
 	gruvbox = themeGruvbox,
+	colorboddy = themeColorbuddy,
 }
 
-themes.zenburn()
+themes.colorboddy()
