@@ -77,6 +77,7 @@ vim.keymap.set("n", "<F12>", dap.restart)
 -- vim.keymap.set("n", "<leader>gb", dap.run_to_cursor)
 
 vim.keymap.set("n", "<space>?", function()
+	---@diagnostic disable-next-line: missing-fields
 	dapui.eval(nil, { enter = true })
 end)
 

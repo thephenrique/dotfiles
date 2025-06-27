@@ -27,6 +27,8 @@ ZSH_FZF_HISTORY_SEARCH_REMOVE_DUPLICATES=1
 
 # PATH Environment variableas.
 
+alias git-next="~/.config/bin/git-next.sh"
+
 # Add Go programming language.
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:/usr/local/go/bin/bin
 export GOPATH=/usr/local/go/bin

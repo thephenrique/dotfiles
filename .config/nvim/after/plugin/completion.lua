@@ -28,22 +28,15 @@ cmp.setup({
 		end,
 	},
 	mapping = {
-		["<C-n>"] = cmp.mapping(function()
-			if cmp.visible() then
-				cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
-			else
-				cmp.complete()
-			end
-		end),
-		["<C-p>"] = cmp.mapping(function()
-			if cmp.visible() then
-				cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
-			else
-				cmp.complete()
-			end
-		end),
-		["<C-y>"] = cmp.mapping.confirm({ select = true }),
-		["<Tab>"] = cmp.config.disable,
+		["<Down>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+		["<Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+		["<CR>"] = cmp.mapping(
+			cmp.mapping.confirm({
+				behavior = cmp.ConfirmBehavior.Insert,
+				select = true,
+			}),
+			{ "i", "c" }
+		),
 	},
 	--- @diagnostic disable-next-line: missing-fields
 	formatting = {
