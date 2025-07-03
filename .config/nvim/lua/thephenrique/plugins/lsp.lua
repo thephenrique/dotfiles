@@ -5,15 +5,14 @@ return {
 	-- So the text editors can support multiples programming languages.
 	"neovim/nvim-lspconfig",
 	dependencies = {
-		-- Helps to install and manage the LSP servers.
-		"williamboman/mason.nvim",
-		-- Auto install LSP servers with Mason.
-		"williamboman/mason-lspconfig.nvim",
-
-		-- Lua LSP configuraton helper.
-		"folke/neodev.nvim",
-
-		-- Provides formatter helper.
+		-- -- Helps to install and manage the LSP servers.
+		{
+			"mason-org/mason.nvim",
+			opts = {},
+		},
+		-- -- Auto install LSP servers with Mason.
+		"mason-org/mason-lspconfig.nvim",
+		-- -- Provides formatter helper.
 		"stevearc/conform.nvim",
 	},
 }

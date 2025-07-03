@@ -18,13 +18,14 @@ require("nvim-treesitter.configs").setup({
 		"graphql",
 		"markdown",
 		"dockerfile",
-
 		"cpp",
 		"make",
 		"bash",
+		"go",
 
 		"lua",
 		"vim",
+		"vimdoc",
 	},
 	ignore_install = {
 		"help",

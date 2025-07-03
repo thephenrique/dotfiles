@@ -5,4 +5,7 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 	},
+
+	-- I didn't use it much.
+	enabled = false,
 }

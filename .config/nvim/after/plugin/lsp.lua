@@ -24,20 +24,12 @@ if not pcall(require, "cmp_nvim_lsp") then
 	return
 end
 
-if not pcall(require, "neodev") then
-	print("Plugin: neodev not found")
-	return
-end
-
 vim.diagnostic.config({
 	virtual_text = true,
 })
 
 local lspconfig = require("lspconfig")
 local mason_lspconfig = require("mason-lspconfig")
-
--- LSP servers management.
-require("mason").setup()
 
 -- Auto install LSP servers with Mason.
 mason_lspconfig.setup({
@@ -53,75 +45,17 @@ mason_lspconfig.setup({
 		"dockerls",
 		"docker_compose_language_service",
 
+		-- For some reason it doesn't install itself.
 		-- "clangd",
 		"cmake",
 		"bashls",
 		"gopls",
 		-- "kotlin_language_server",
 		-- "shfmt",
+		-- "xmlformatter",
 
 		"lua_ls",
 		-- stylua
-	},
-})
-
--- Lua LSP configuraton helper.
-require("neodev").setup({})
-
-local updated_capabilities = vim.lsp.protocol.make_client_capabilities()
-vim.tbl_deep_extend("force", updated_capabilities, require("cmp_nvim_lsp").default_capabilities())
-updated_capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
-updated_capabilities.textDocument.completion.completionItem.snippetSupport = true -- Allow HTML and CSS completions.
-updated_capabilities.textDocument.completion.completionItem.insertReplaceSupport = false
-updated_capabilities.textDocument.codeLens = { dynamicRegistration = false }
-
--- Auto setup LSP servers from Mason.
-local installed_servers = mason_lspconfig.get_installed_servers()
-for _, server_name in ipairs(installed_servers) do
-	lspconfig[server_name].setup({
-		capabilities = updated_capabilities,
-	})
-end
-
--- Setup Lua LSP server - Custom setup.
-lspconfig.lua_ls.setup({
-	capabilities = updated_capabilities,
-	settings = {
-		Lua = {
-			workspace = {
-				checkThirdParty = false,
-			},
-			diagnostics = {
-				globals = { "vim" },
-			},
-			completion = {
-				callSnippet = "Replace",
-			},
-		},
-	},
-})
-
--- Setup JSON LSP server - Custom setup.
--- lspconfig.jsonls.setup({
--- 	capabilities = updated_capabilities,
--- 	-- Disable LSP formatter to use Prettier instead.
--- 	init_options = {
--- 		provideFormatter = false,
--- 	},
--- })
-
--- Setup Kotlin LSP server - Custom setup.
-lspconfig.kotlin_language_server.setup({
-	capabilities = updated_capabilities,
-	settings = {
-		kotlin = {
-			compiler = {
-				jvm = {
-					-- Fix conflict diagnostic: Cannot inline bytecode built with JVM target 17 into bytecode that is being built with JVM target 1.8.
-					target = "17",
-				},
-			},
-		},
 	},
 })
 
