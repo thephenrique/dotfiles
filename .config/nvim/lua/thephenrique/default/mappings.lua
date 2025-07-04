@@ -123,7 +123,9 @@ Mappings for current Buffer diagnostics.
 
 -- Hover.
 vim.keymap.set("n", "K", function()
-	vim.lsp.buf.hover()
+	vim.lsp.buf.hover({
+		border = "bold",
+	})
 end)
 -- Open Diagnostic.
 vim.keymap.set("n", "<leader>d", function()
