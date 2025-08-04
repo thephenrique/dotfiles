@@ -103,6 +103,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 # bindsym Print exec gnome-screenshot -i
 # Start screenshot: Flameshot.
 bindsym $mod+i exec "flameshot gui"
+bindsym Print exec "flameshot screen"
 
 # Audio keyboard control.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -117,8 +118,13 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 
 # Setup monitors.
+#
 # The monitors may flicker while setup is runnig.
 exec --no-startup-id bash ~/.config/bin/setup_monitors.sh "hdmi-1"
-
+#
 # Shortcut to enable just the Notebook monitor.
 bindsym $mod+F4 exec --no-startup-id bash ~/.config/bin/setup_monitors.sh "notebook"
+#
+# Move Workspaces to own Monitors.
+# workspace 1 output HDMI-2
+# workspace 2 output eDP-1

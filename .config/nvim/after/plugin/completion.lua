@@ -28,6 +28,8 @@ cmp.setup({
 		end,
 	},
 	mapping = {
+		-- Insert Mode. Same keymap as zsh to search history commands.
+		["<C-r>"] = cmp.mapping.complete(),
 		["<Down>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
 		["<Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
 		["<CR>"] = cmp.mapping(
