@@ -28,7 +28,7 @@ vim.diagnostic.config({
 	virtual_text = true,
 })
 
-local lspconfig = require("lspconfig")
+require("lspconfig")
 local mason_lspconfig = require("mason-lspconfig")
 
 -- Auto install LSP servers with Mason.
@@ -56,6 +56,17 @@ mason_lspconfig.setup({
 
 		"lua_ls",
 		-- stylua
+	},
+})
+
+-- Custom config to Lua LSP.
+vim.lsp.config("lua_ls", {
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim" },
+			},
+		},
 	},
 })
 
