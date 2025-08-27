@@ -94,7 +94,7 @@ mode "$mode_system" {
 
 
 # Start a program launcher: dmenu.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+f exec --no-startup-id i3-dmenu-desktop
 
 # Start terminal.
 bindsym $mod+Return exec i3-sensible-terminal
@@ -128,3 +128,6 @@ bindsym $mod+F4 exec --no-startup-id bash ~/.config/bin/setup_monitors.sh "noteb
 # Move Workspaces to own Monitors.
 # workspace 1 output HDMI-2
 # workspace 2 output eDP-1
+
+
+exec_always --no-startup-id input-remapper-control --command autoload

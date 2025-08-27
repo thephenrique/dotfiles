@@ -58,3 +58,11 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# Improve `M-w` (just notes).
+x-copy-region-as-kill () {
+  zle copy-region-as-kill
+  print -rn -- $CUTBUFFER | xclip -selection clipboard
+}
+zle -N x-copy-region-as-kill
+bindkey -e '\ew' x-copy-region-as-kill
