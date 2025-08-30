@@ -85,14 +85,24 @@ And documentation for builtin mappings of some plugins.
 --]]
 
 -- Multiple Cursors.
---   `vim-visual-multi` Leader Key ::: \\
---   `vim-visual-multi` switch between Cursor and Extend Modes ::: <Tab>
---   `vim-visual-multi` Cursor Mode is similar to Neovim Normal Mode.
---   `vim-visual-multi` Extend Mode is similar to Neovim Visual Mode.
+--
+--
+--   `vim-visual-multi` Leader Key ::: , (default: \\)
+--
+--   `vim-visual-multi` <Tab> ::: Switch between Cursor and Extend Modes
+--                      Cursor Mode is similar to Neovim Normal Mode.
+--                      Extend Mode is similar to Neovim Visual Mode.
 --
 --   <C-n> ::: in Visual Mode to init Extend Mode.
---   <leader>a ::: in Cursor Mode to align regions.
---
+--   <leader>a ::: To align regions.
+--   <leader>c ::: To case convertion.
+--      https://github.com/mg979/vim-visual-multi/blob/master/doc/visual-multi.txt#L633
+--      U ::: To uppercase.
+--      u ::: To lowercase.
+--      more...
+
+vim.g.VM_leader = ","
+
 -- Auto completions.
 -- Inside of nvim-cmp floating windows:
 -- <C-p> <C-n> <C-y> <Tab> ::: in Insert Mode to move around and confirm auto completions.
