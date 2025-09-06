@@ -7,7 +7,7 @@ vim.opt.wildoptions = "pum"
 
 -- Timers.
 vim.opt.updatetime = 1000
-vim.opt.timeoutlen = 300
+vim.opt.timeoutlen = 500
 
 -- Spell check.
 vim.opt.spell = false

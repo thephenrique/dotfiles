@@ -41,8 +41,10 @@ vim.keymap.set("n", "J", "mzJ`z")
 -- vim.keymap.set("n", "n", "nzzzv")
 -- vim.keymap.set("n", "N", "Nzzzv")
 
--- Paste, but not replace the yanked text.
--- vim.keymap.set("x", "<leader>p", [["_dP]])
+-- P ::: Paste, but not replace the yanked text.
+-- Duplicate line and keeps the cursor position in the same column, without resetting to the beginning of the line.
+vim.keymap.set("n", "<leader>p", "m`yyp``j")
+vim.keymap.set("n", "<leader>P", "m`yyP``k")
 
 -- 6 is too far from CTRL. Alternate between two buffers.
 vim.keymap.set("n", "<C-p>", "<C-6>")
@@ -87,21 +89,29 @@ And documentation for builtin mappings of some plugins.
 -- Multiple Cursors.
 --
 --
---   `vim-visual-multi` Leader Key ::: , (default: \\)
+--   `vim-visual-multi` Leader Key ::: <C-s> (default: \\)
 --
 --   `vim-visual-multi` <Tab> ::: Switch between Cursor and Extend Modes
 --                      Cursor Mode is similar to Neovim Normal Mode.
 --                      Extend Mode is similar to Neovim Visual Mode.
 --
---   <C-n> ::: in Visual Mode to init Extend Mode.
+--   # With Visual Multi (VM) started:
+--   mG ::: Select all words downwards.
+--   mgg ::: Select all words upwards.
 --   <leader>a ::: To align regions.
---   <leader>c ::: To case convertion.
+--   <leader>C ::: To case convertion.
 --      https://github.com/mg979/vim-visual-multi/blob/master/doc/visual-multi.txt#L633
 --      U ::: To uppercase.
 --      u ::: To lowercase.
 --      more...
+--
+--   # Without Visual Multi (VM) started:
+--   <C-Up> ::: Start VM adding cursors upwards.
+--   <C-Down> ::: Start VM adding cursors downwards.
+--   <C-n> ::: in Visual Mode to select and init Extend Mode.
+--   <leader>A ::: Select all words in the file.
 
-vim.g.VM_leader = ","
+vim.g.VM_leader = "<C-s>"
 
 -- Auto completions.
 -- Inside of nvim-cmp floating windows:
