@@ -36,9 +36,6 @@ export GOPATH=/usr/local/go/bin
 # Add Zig programming language.
 export PATH=$PATH:/usr/local/zig
 
-# Add Doom Emacs. ¯\_(ツ)_/¯
-export PATH=$PATH:$HOME/.emacs.d/bin:$HOME/.config/emacs/bin
-
 # Add ranger file manager.
 # Install: `git clone https://github.com/ranger/ranger.git /usr/local/ranger`
 alias ranger="python3 /usr/local/ranger/ranger.py"
