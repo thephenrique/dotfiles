@@ -7,3 +7,4 @@
 # ... except.
 !.config
 !.zshrc
+!.zprofile
