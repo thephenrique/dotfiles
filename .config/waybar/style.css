@@ -1,6 +1,6 @@
 /* --- Global Styles --- */
 * {
-  font-family: 'JetBrainsMono Nerd Font', 'SF Pro Text', 'Inter', 'Segoe UI, NotoSans Nerd Font', sans-serif;
+  font-family: "JetBrainsMono Nerd Font", sans-serif;
   font-size: 13px;
   min-height: 0;
   padding-right: 0px;
@@ -18,8 +18,8 @@
 
 /* --- Left Modules (Individual, Fully Rounded Blocks - With Horizontal Spacing & Simple Hover) --- */
 #workspaces,
-#custom-uptime,
-#cpu,#memory {
+#cpu,
+#memory {
   background-color: #1a1b26;
   padding: 0.3rem 0.7rem;
   margin: 5px 0px; /* 5px top/bottom margin, 0px left/right (base for individual control) */
@@ -28,10 +28,12 @@
   min-width: 0;
   border: none;
   /* Transition for background-color and color only */
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
 }
 #memory {
-	margin-left: 5px;
+  margin-left: 5px;
 }
 
 #workspaces {
@@ -40,12 +42,7 @@
   margin-right: 5px; /* Spacing after the workspaces module */
 }
 
-#custom-uptime {
-  margin-right: 5px; /* Spacing after the uptime module */
-}
-
 /* Simple Hover effects for individual left modules - BRIGHTER COLOR */
-#custom-uptime:hover,
 #cpu:hover {
   background-color: rgb(41, 42, 53); /* Brighter highlight */
 }
@@ -80,7 +77,9 @@
   /*box-shadow: 0 1px 3px rgba(153, 209, 219, 0.2);*/
   min-width: 0;
   border: none;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
 }
 
 /* Simple Hover effect for clock module - BRIGHTER COLOR */
@@ -93,29 +92,29 @@
 #pulseaudio,
 #backlight,
 #network,
-#custom-lock,
 #battery {
   background-color: #1a1b26;
   padding: 0.3rem 0.7rem;
-  margin: 5px 0px; 
+  margin: 5px 0px;
   border-radius: 0;
   box-shadow: none;
   min-width: 0;
   border: none;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
 }
 
 #bluetooth:hover,
 #pulseaudio:hover,
 #backlight:hover,
 #network:hover,
-#custom-lock:hover,
 #battery:hover {
   background-color: rgb(41, 42, 53);
 }
 
 #bluetooth {
-  margin-left: 0px; 
+  margin-left: 0px;
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
 }
@@ -126,9 +125,6 @@
   margin-right: 7px;
 }
 
-#custom-uptime {
-  color: #babbf1;
-}
 #cpu {
   color: #c6d0f5;
 }
@@ -153,9 +149,6 @@
   color: #e78284;
 }
 
-#custom-lock {
-  color: #babbf1;
-}
 #bluetooth {
   color: #888888;
   font-size: 16px;
@@ -167,7 +160,7 @@
   color: #99d1db;
 }
 #battery {
-  color: #99d1db;;
+  color: #99d1db;
 }
 #battery.charging {
   color: #a6d189;

@@ -2,22 +2,15 @@
   "layer": "top",
   "position": "top",
   "margin-bottom": -10,
-  "spacing" : 0,
-  "modules-left": [
-  "hyprland/workspaces",
-  "cpu",
-  "memory",
-"temperature"
-  ],
-
+  "spacing": 0,
+  "modules-left": ["hyprland/workspaces", "cpu", "memory", "temperature"],
   "modules-center": ["clock"],
-
   "modules-right": [
     "bluetooth",
     "network",
-    "pulseaudio", 
+    "pulseaudio",
     "backlight",
-    "battery",
+    "battery"
   ],
 
   "hyprland/workspaces": {
@@ -28,34 +21,24 @@
     }
   },
 
-	"bluetooth": {
-		"format": "󰂯",
-		"format-disabled": "󰂲",
-		"format-off": "󰂲",
-		"format-on": "󰂰",
-		"format-connected": "󰂱",
-		"min-length": 2,
-		"max-length": 2,
-		"on-click": "blueman-manager",
-		"on-click-right": "bluetoothctl power off && notify-send 'Bluetooth Off' -r 1925",
-		"tooltip-format": "Device Addr: {device_address}",
-		"tooltip-format-disabled": "Bluetooth Disabled",
-		"tooltip-format-off": "Bluetooth Off",
-		"tooltip-format-on": "Bluetooth Disconnected",
-		"tooltip-format-connected": "Device: {device_alias}",
-		"tooltip-format-enumerate-connected": "Device: {device_alias}",
-		"tooltip-format-connected-battery": "Device: {device_alias}\nBattery: {device_battery_percentage}%",
-		"tooltip-format-enumerate-connected-battery": "Device: {device_alias}\nBattery: {device_battery_percentage}%"
-	},
-
-  "custom/music": {
-    "format": "  {}",
-    "escape": true,
-    "interval": 5,
-    "tooltip": false,
-    "exec": "playerctl metadata --format='{{ artist }} - {{ title }}'",
-    "on-click": "playerctl play-pause",
-    "max-length": 50
+  "bluetooth": {
+    "format": "󰂯",
+    "format-disabled": "󰂲",
+    "format-off": "󰂲",
+    "format-on": "󰂰",
+    "format-connected": "󰂱",
+    "min-length": 2,
+    "max-length": 2,
+    "on-click": "blueman-manager",
+    "on-click-right": "bluetoothctl power off && notify-send 'Bluetooth Off' -r 1925",
+    "tooltip-format": "Device Addr: {device_address}",
+    "tooltip-format-disabled": "Bluetooth Disabled",
+    "tooltip-format-off": "Bluetooth Off",
+    "tooltip-format-on": "Bluetooth Disconnected",
+    "tooltip-format-connected": "Device: {device_alias}",
+    "tooltip-format-enumerate-connected": "Device: {device_alias}",
+    "tooltip-format-connected-battery": "Device: {device_alias}\nBattery: {device_battery_percentage}%",
+    "tooltip-format-enumerate-connected-battery": "Device: {device_alias}\nBattery: {device_battery_percentage}%"
   },
 
   "clock": {
@@ -72,14 +55,13 @@
     "interval": 5,
     "tooltip-format": "{essid} ({signalStrength}%)",
     "on-click": "networkmanager_dmenu"
-
- },
+  },
 
   "cpu": {
     "interval": 1,
     "format": "  {icon0}{icon1}{icon2}{icon3} {usage:>2}%",
     "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
-    "on-click": "ghostty -e htop"
+    "on-click": "alacritty -e htop"
   },
 
   "memory": {
@@ -88,48 +70,27 @@
     "tooltip-format": "Memory"
   },
 
-"temperature": {
-		"thermal-zone": 11,
-		"critical-threshold": 90,
-		"interval": 10,
-		"format-critical": "󰀦 {temperatureC}°C",
-		"format": "{icon} {temperatureC}°C",
-		"format-icons": [
-			"󱃃", "󰔏", "󱃂"
-		],
-		"min-length": 8,
-		"max-length": 8,
-	},
-
-"backlight": {
-		// "interval":
-		"format": "{icon} {percent}%",
-		"format-icons": [
-			"", "", "", "", "", "", "", "", ""
-		],
-		"min-length": 7,
-		"max-length": 7,
-		// "rotate":
-		// "states":
-		// "on-click":
-		// "on-click-middle":
-		// "on-click-right":
-		"on-scroll-up": "~/.config/waybar/scripts/backlight.sh up",
-		"on-scroll-down": "~/.config/waybar/scripts/backlight.sh down",
-		// "smooth-scrolling-threshold":
-		// "reverse-scrolling":
-		// "reverse-mouse-scrolling":
-		// "scroll-step":
-		"tooltip": false
-		// "tooltip-format":
-	},
-  
-  "backlight": {
-        "format": "{icon}  {percent}%",
-        "format-icons": ["","󰃜", "󰃛", "󰃞","󰃝","󰃟","󰃠"],
-        "tooltip": false
+  "temperature": {
+    "thermal-zone": 11,
+    "critical-threshold": 90,
+    "interval": 10,
+    "format-critical": "󰀦 {temperatureC}°C",
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["󱃃", "󰔏", "󱃂"],
+    "min-length": 8,
+    "max-length": 8
   },
-  
+
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "min-length": 7,
+    "max-length": 7,
+    "on-scroll-up": "~/.config/waybar/scripts/backlight.sh up",
+    "on-scroll-down": "~/.config/waybar/scripts/backlight.sh down",
+    "tooltip": false
+  },
+
   "pulseaudio": {
     "format": "{icon}  {volume}%",
     "format-muted": "",
@@ -140,26 +101,16 @@
   },
 
   "battery": {
-        "interval":2,
-        "states": {
-            // "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon}  {capacity}%",
-        "format-full": "{icon}  {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt": "{icon} {time}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
-  },
-  
-  "custom/lock": {
-  "tooltip": false,
-  "on-click": "sh -c '(sleep 0s; hyprlock)' & disown",
-  "format" : ""
-  },
-
+    "interval": 2,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}  {capacity}%",
+    "format-full": "{icon}  {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon} {time}",
+    "format-icons": ["", "", "", "", ""]
+  }
 }
