@@ -10,9 +10,9 @@ ZSH_THEME="gnzh"
 
 plugins=(
   git
+  vi-mode
+  fzf
   zsh-syntax-highlighting
-  zsh-autosuggestions
-  zsh-fzf-history-search
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -21,9 +21,9 @@ source $ZSH/oh-my-zsh.sh
 [ -f "$HOME/.config/zsh/aliases" ] && source "$HOME/.config/zsh/aliases"
 
 # `zsh-fzf-history-search` configs
-ZSH_FZF_HISTORY_SEARCH_EVENT_NUMBERS=0
-ZSH_FZF_HISTORY_SEARCH_DATES_IN_SEARCH=0
-ZSH_FZF_HISTORY_SEARCH_REMOVE_DUPLICATES=1
+# ZSH_FZF_HISTORY_SEARCH_EVENT_NUMBERS=0
+# ZSH_FZF_HISTORY_SEARCH_DATES_IN_SEARCH=0
+# ZSH_FZF_HISTORY_SEARCH_REMOVE_DUPLICATES=1
 
 # PATH Environment variableas.
 
@@ -56,10 +56,10 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-# Improve `M-w` (just notes).
-x-copy-region-as-kill () {
-  zle copy-region-as-kill
-  print -rn -- $CUTBUFFER | xclip -selection clipboard
-}
-zle -N x-copy-region-as-kill
-bindkey -e '\ew' x-copy-region-as-kill
+# # Improve `M-w` (just notes).
+# x-copy-region-as-kill () {
+#   zle copy-region-as-kill
+#   print -rn -- $CUTBUFFER | xclip -selection clipboard
+# }
+# zle -N x-copy-region-as-kill
+# bindkey -e '\ew' x-copy-region-as-kill
