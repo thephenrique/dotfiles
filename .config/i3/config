@@ -105,6 +105,10 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+i exec "flameshot gui"
 bindsym Print exec "flameshot screen"
 
+# Others.
+bindsym $mod+c exec --no-startup-id google-chrome
+bindsym $mod+e exec --no-startup-id nautilus
+
 # Audio keyboard control.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
