@@ -85,7 +85,7 @@ program = "/usr/bin/zsh"
 
 [window]
 decorations = "full"
-dynamic_padding = true
+dynamic_padding = false
 dynamic_title = true
 opacity = 1.0
 
