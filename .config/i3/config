@@ -94,6 +94,9 @@ mode "$mode_system" {
 
 
 # Start a program launcher: dmenu.
+#
+# README: Fix launcher.
+# echo 'export LC_CTYPE="en_US.utf8"' >> ~/.profile
 bindsym $mod+f exec --no-startup-id i3-dmenu-desktop
 
 # Start terminal.
