@@ -27,7 +27,13 @@ source $ZSH/oh-my-zsh.sh
 
 # tmux.
 # Open tmux sessions with fuzzy finder.
-bindkey -s '^f' '~/.config/bin/tmux-sessionizer\n'
+tmux_sessionizer_widget() {
+  BUFFER="~/.config/bin/tmux-sessionizer"
+  zle accept-line
+}
+zle -N tmux_sessionizer_widget
+bindkey -s '^f' "~/.config/bin/tmux-sessionizer\n"
+bindkey -M vicmd '^f' tmux_sessionizer_widget
 
 # Conflict between zsh-vi-mode and fzf.
 # Replace <C-r> from fzf to Redo of zsh-vi-mode.
