@@ -135,6 +135,9 @@ vim.keymap.set("n", "<leader>cr", function()
 	vim.lsp.buf.rename()
 end)
 
+-- Toggle Undotree.
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+
 --[[
 
 Mappings for current Buffer diagnostics.
