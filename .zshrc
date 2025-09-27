@@ -16,7 +16,7 @@ plugins=(
 # Variables
 
 # zsh.
-export ZSH_THEME="gnzh"
+export ZSH_THEME="easy"
 # zsh-vi-mode.
 export ZVM_INIT_MODE=sourcing
 export ZVM_SYSTEM_CLIPBOARD_ENABLED=true
