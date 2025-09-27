@@ -9,14 +9,10 @@ plugins=(
 )
 
 # zsh.
-export ZSH_THEME="gnzh"
+export ZSH_THEME="easy"
 # zsh-vi-mode.
 export ZVM_INIT_MODE=sourcing
 export ZVM_SYSTEM_CLIPBOARD_ENABLED=true
-
-
-# Load Shell aliases
-[ -f "$HOME/.config/zsh/aliases" ] && source "$HOME/.config/zsh/aliases"
 
 # `zsh-fzf-history-search` configs
 # ZSH_FZF_HISTORY_SEARCH_EVENT_NUMBERS=0
@@ -55,6 +51,9 @@ esac
 # pnpm end
 #
 source $ZSH/oh-my-zsh.sh
+
+# Load Shell aliases
+[ -f "$HOME/.config/zsh/aliases" ] && source "$HOME/.config/zsh/aliases"
 
 # Conflict between zsh-vi-mode and fzf.
 # Replace <C-r> from fzf to Redo of zsh-vi-mode.
