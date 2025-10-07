@@ -7,6 +7,13 @@ require("telescope").setup({
 	defaults = {
 		wrap_results = true,
 		file_ignore_patterns = { ".git/" },
+		-- Full screen.
+		layout_config = {
+			width = 400,
+			height = 100,
+			prompt_position = "bottom",
+			preview_cutoff = 40,
+		},
 	},
 	extensions = {
 		fzf = {

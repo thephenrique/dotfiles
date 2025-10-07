@@ -8,11 +8,7 @@ dirs=(
   ~/Documents/personal/apps
   ~/.config)
 
-if [[ $# -eq 1 ]]; then
-  selected_path=$1
-else
-  selected_path=$(find ${dirs[@]} -mindepth 1 -maxdepth 1 -type d | fzf)
-fi
+selected_path=$(find ${dirs[@]} -mindepth 1 -maxdepth 1 -type d | fzf --query "$1")
 
 if [[ -z $selected_path ]]; then
   exit 0

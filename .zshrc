@@ -3,7 +3,7 @@ export ZSH=~/.oh-my-zsh
 plugins=(
   git
   # vi-mode
-  zsh-vi-mode
+  # zsh-vi-mode
   zsh-syntax-highlighting
   fzf
 )
@@ -11,8 +11,8 @@ plugins=(
 # zsh.
 export ZSH_THEME="easy"
 # zsh-vi-mode.
-export ZVM_INIT_MODE=sourcing
-export ZVM_SYSTEM_CLIPBOARD_ENABLED=true
+# export ZVM_INIT_MODE=sourcing
+# export ZVM_SYSTEM_CLIPBOARD_ENABLED=true
 
 # `zsh-fzf-history-search` configs
 # ZSH_FZF_HISTORY_SEARCH_EVENT_NUMBERS=0
@@ -49,7 +49,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-#
+
 source $ZSH/oh-my-zsh.sh
 
 # Load Shell aliases
@@ -57,15 +57,18 @@ source $ZSH/oh-my-zsh.sh
 
 # Conflict between zsh-vi-mode and fzf.
 # Replace <C-r> from fzf to Redo of zsh-vi-mode.
-bindkey '^R' redo
-bindkey -M vicmd '^R' redo
+# bindkey '^R' redo
+bindkey -r '^R'
+# bindkey -M vicmd '^R' redo
 # Set (grep) <C-g> to history fzf.
 bindkey '^G' fzf-history-widget
-bindkey -M vicmd '^G' fzf-history-widget
+# bindkey -M vicmd '^G' fzf-history-widget
 
 # zsh-vi-mode.
 # Use system clipboard for pasting.
-zvm_bindkey vicmd  'p' zvm_paste_clipboard_after
-zvm_bindkey vicmd  'P' zvm_paste_clipboard_before
-zvm_bindkey visual 'p' zvm_visual_paste_clipboard
-zvm_bindkey visual 'P' zvm_visual_paste_clipboard
+# zvm_bindkey vicmd  'p' zvm_paste_clipboard_after
+# zvm_bindkey vicmd  'P' zvm_paste_clipboard_before
+# zvm_bindkey visual 'p' zvm_visual_paste_clipboard
+# zvm_bindkey visual 'P' zvm_visual_paste_clipboard
+# #
+# export ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
