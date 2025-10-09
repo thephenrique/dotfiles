@@ -60,7 +60,7 @@ bindsym $mod+F1 exec --no-startup-id $xset_rate && setxkbmap -layout us
 bindsym $mod+F2 exec --no-startup-id $xset_rate && setxkbmap -layout us -variant intl
 # Force remaps.
 # bindsym $mod+F3 exec --no-startup-id xmodmap ~/.Xmodmap
-bindsym $mod+F3 exec --no-startup-id input-remapper-control --command autoload
+# bindsym $mod+F3 exec --no-startup-id input-remapper-control --command autoload
 
 
 
@@ -137,4 +137,4 @@ bindsym $mod+F4 exec --no-startup-id bash ~/.config/bin/setup_monitors.sh "noteb
 # workspace 2 output eDP-1
 
 
-exec_always --no-startup-id input-remapper-control --command autoload
+# exec_always --no-startup-id input-remapper-control --command autoload
