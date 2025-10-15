@@ -36,26 +36,29 @@ mason_lspconfig.setup({
 	ensure_installed = {
 		"ts_ls",
 		"eslint",
-		-- prettierd - Changed. Unknown error during format.
-		-- prettier - Enabled.
 		"html",
 		"cssls",
 		"jsonls",
 		"yamlls",
 		"dockerls",
 		"docker_compose_language_service",
-
-		-- For some reason it doesn't install itself.
-		-- "clangd",
 		"cmake",
 		"bashls",
 		"gopls",
-		-- "kotlin_language_server",
-		-- "shfmt",
-		-- "xmlformatter",
-
 		"lua_ls",
+
+		-- For some reason it doesn't install itself.
+		--
+		-- prettier - Enabled.
+		-- clangd
+		-- kotlin_language_server
+		-- shfmt
+		-- xmlformatter
 		-- stylua
+		--
+		-- ltex-ls (Grammar)
+		-- texlab (LSP)
+		-- latexindent (Formatter)
 	},
 })
 
@@ -65,6 +68,28 @@ vim.lsp.config("lua_ls", {
 		Lua = {
 			diagnostics = {
 				globals = { "vim" },
+			},
+		},
+	},
+})
+
+-- Custom config to the offline grammar checking LTeX.
+-- https://valentjn.github.io/ltex/index.html
+vim.lsp.config("ltex", {
+	on_attach = function()
+		-- Add support to extra features like "Add to dictionary".
+		require("ltex_extra").setup({
+			load_langs = { "pt-BR" },
+			path = vim.fn.expand("~") .. "/.config/nvim/spell",
+		})
+	end,
+	settings = {
+		ltex = {
+			enabled = { "latex", "tex", "markdown" },
+			language = "pt-BR",
+			additionalRules = {
+				enablePickyRules = true,
+				motherTongue = "pt-BR",
 			},
 		},
 	},

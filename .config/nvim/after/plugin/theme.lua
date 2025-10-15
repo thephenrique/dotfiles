@@ -84,3 +84,5 @@ local themes = {
 }
 
 themes.colorboddy()
+
+return themes
