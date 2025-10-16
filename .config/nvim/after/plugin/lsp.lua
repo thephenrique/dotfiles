@@ -75,25 +75,25 @@ vim.lsp.config("lua_ls", {
 
 -- Custom config to the offline grammar checking LTeX.
 -- https://valentjn.github.io/ltex/index.html
-vim.lsp.config("ltex", {
-	on_attach = function()
-		-- Add support to extra features like "Add to dictionary".
-		require("ltex_extra").setup({
-			load_langs = { "pt-BR" },
-			path = vim.fn.expand("~") .. "/.config/nvim/spell",
-		})
-	end,
-	settings = {
-		ltex = {
-			enabled = { "latex", "tex", "markdown" },
-			language = "pt-BR",
-			additionalRules = {
-				enablePickyRules = true,
-				motherTongue = "pt-BR",
-			},
-		},
-	},
-})
+-- vim.lsp.config("ltex", {
+-- 	on_attach = function()
+-- 		-- Add support to extra features like "Add to dictionary".
+-- 		require("ltex_extra").setup({
+-- 			load_langs = { "pt-BR" },
+-- 			path = vim.fn.expand("~") .. "/.config/nvim/spell",
+-- 		})
+-- 	end,
+-- 	settings = {
+-- 		ltex = {
+-- 			enabled = { "latex", "tex", "markdown" },
+-- 			language = "pt-BR",
+-- 			additionalRules = {
+-- 				enablePickyRules = true,
+-- 				motherTongue = "pt-BR",
+-- 			},
+-- 		},
+-- 	},
+-- })
 
 --[[
 
