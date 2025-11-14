@@ -260,7 +260,7 @@ Mappings for "Compile Mode" from compile-mode.nvim.
 
 --[[
 
-Mappings for "GitHub Copilot" from github/copilot.vim.
+Mappings for "GitHub Copilot" from copilot.vim.
 
 --]]
 
@@ -286,3 +286,12 @@ end, { expr = true, silent = true })
 -- :Copilot enable ::: To enable GitHub Copilot.
 -- :Copilot disable ::: To disable GitHub Copilot.
 -- :Copilot status ::: To check the status of GitHub Copilot.
+
+--[[
+
+Mappings for "GitHub Copilot Chat" from CopilotChat.nvim.
+
+--]]
+
+vim.keymap.set("n", "<leader>co", "<Cmd>CopilotChatOpen<CR>")
+vim.keymap.set({ "v", "n" }, "<leader>cc", "<Cmd>CopilotChatPrompts<CR>")
