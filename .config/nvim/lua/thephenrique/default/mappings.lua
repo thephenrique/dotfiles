@@ -257,3 +257,32 @@ Mappings for "Compile Mode" from compile-mode.nvim.
 -- :Recompile ::: To... Recompile. :)
 -- :NextError ::: To move the cursor to the next error in the source code (at source code Buffer).
 -- :PrevError ::: To move the cursor to the previous error in the source code (at source code Buffer).
+
+--[[
+
+Mappings for "GitHub Copilot" from github/copilot.vim.
+
+--]]
+
+-- Disable default <Tab> and <S-Tab> mappings.
+vim.g.copilot_no_tab_map = true
+
+vim.keymap.set("i", "<M-a>", function()
+	return vim.fn["copilot#Accept"]("")
+end, { expr = true, silent = true, replace_keycodes = false })
+
+vim.keymap.set("i", "<M-n>", function()
+	return vim.fn["copilot#Next"]()
+end, { expr = true, silent = true })
+
+vim.keymap.set("i", "<M-p>", function()
+	return vim.fn["copilot#Previous"]()
+end, { expr = true, silent = true })
+
+vim.keymap.set("i", "<M-d>", function()
+	return vim.fn["copilot#Dismiss"]()
+end, { expr = true, silent = true })
+
+-- :Copilot enable ::: To enable GitHub Copilot.
+-- :Copilot disable ::: To disable GitHub Copilot.
+-- :Copilot status ::: To check the status of GitHub Copilot.
