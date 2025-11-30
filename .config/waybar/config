@@ -44,7 +44,7 @@
   "clock": {
     "timezone": "America/Sao_Paulo",
     "tooltip": false,
-    "format": "{:%H:%M:%S  -  %A, %d}",
+    "format": "{:%H:%M  -  %A, %d}",
     "interval": 1
   },
 
