@@ -210,6 +210,10 @@ vim.keymap.set("n", "<leader>;t", ":NvimTreeFindFile<CR>")
 -- Resume (show last query/search).
 vim.keymap.set("n", "<leader>;;", "<Cmd>Telescope resume<CR>")
 
+-- Oil.
+-- Open Oil in current Buffer.
+vim.keymap.set("n", "-", "<CMD>Oil<CR>")
+
 --[[
 
 Mappings for Git integration.

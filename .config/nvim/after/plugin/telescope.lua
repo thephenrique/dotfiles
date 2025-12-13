@@ -372,9 +372,26 @@ function telescopePickers.prettyFindDirectoryAndFocus()
 		return true
 	end
 
+	-- open_oil
+	local function open_oil(prompt_bufnr, _)
+		actions.select_default:replace(function()
+			local oil = require("oil")
+
+			actions.close(prompt_bufnr)
+			local selection = action_state.get_selected_entry()
+			oil.open(selection.cwd .. "/" .. selection.value)
+		end)
+
+		return true
+	end
+
+	-- local options = {
+	-- 	find_command = { "fdfind", "--type", "directory", "--hidden", "--exclude", ".git/*" },
+	-- 	attach_mappings = open_nvim_tree,
+	-- }
 	local options = {
 		find_command = { "fdfind", "--type", "directory", "--hidden", "--exclude", ".git/*" },
-		attach_mappings = open_nvim_tree,
+		attach_mappings = open_oil,
 	}
 	local originalEntryMaker = telescopeMakeEntryModule.gen_from_file({})
 
