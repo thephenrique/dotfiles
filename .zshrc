@@ -64,6 +64,9 @@ bindkey -r '^R'
 bindkey '^G' fzf-history-widget
 # bindkey -M vicmd '^G' fzf-history-widget
 
+# Add backward-kill-word to <C-H> and <Backspace>.
+bindkey '^H' backward-kill-word
+
 # zsh-vi-mode.
 # Use system clipboard for pasting.
 # zvm_bindkey vicmd  'p' zvm_paste_clipboard_after
