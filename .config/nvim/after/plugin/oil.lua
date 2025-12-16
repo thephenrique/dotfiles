@@ -14,7 +14,16 @@ require("oil").setup({
 		"permissions",
 		"size",
 	},
+	confirmation = {
+		padding = 4,
+		border = "bold",
+	},
 	keymaps = {
+		["<M-v>"] = { "actions.select", opts = { vertical = true, close = true } },
+		["<C-h>"] = false,
+		["<C-s>"] = false,
+		["<C-l>"] = false,
+		["<leader>l"] = "actions.refresh",
 		["gy"] = {
 			desc = "Copy filepath to system clipboard",
 			callback = function()

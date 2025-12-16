@@ -21,6 +21,7 @@ vim.opt.clipboard:append({ "unnamedplus" })
 vim.opt.termguicolors = true
 vim.opt.winblend = 0
 vim.opt.pumblend = 0
+-- vim.opt.winborder = "bold"
 -- vim.opt.background = "light"
 
 -- Cursor (default).
