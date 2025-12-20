@@ -213,6 +213,9 @@ vim.keymap.set("n", "<leader>;;", "<Cmd>Telescope resume<CR>")
 -- Oil.
 -- Open Oil in current Buffer.
 vim.keymap.set("n", "-", "<CMD>Oil<CR>")
+-- Open Oil in parent directory of current Buffer.
+-- Useful when you have 2 splits of Oil and want to bring files from other directories to the current one.
+vim.keymap.set("n", "<leader>-", [[:Oil <C-r>=substitute(expand('%:p:h'), 'oil://', '', '')<CR>]])
 
 --[[
 

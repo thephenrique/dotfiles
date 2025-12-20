@@ -14,10 +14,14 @@ require("oil").setup({
 		"permissions",
 		"size",
 	},
+	view_options = {
+		show_hidden = true,
+	},
 	confirmation = {
 		padding = 4,
 		border = "bold",
 	},
+	constrain_cursor = "name",
 	keymaps = {
 		["<M-v>"] = { "actions.select", opts = { vertical = true, close = true } },
 		["<C-h>"] = false,
