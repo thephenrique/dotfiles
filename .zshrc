@@ -27,3 +27,6 @@ zle -N tmux_sessionizer_widget
 
 bindkey '^F' tmux_sessionizer_widget
 bindkey '^G' fzf-history-widget
+
+# Add backward-kill-word to <C-H> and <Backspace>.
+bindkey '^H' backward-kill-word

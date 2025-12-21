@@ -27,7 +27,11 @@ x = 0
 y = 0
 
 [font]
-size = 12
+
+# Resolution: 3840x2160
+size = 14
+# Resolution: 2560x1600
+#size = 12
 
 # Iosevka Comfy repository.
 # The TTFs already exist there.
