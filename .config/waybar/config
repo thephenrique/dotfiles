@@ -3,7 +3,7 @@
   "position": "top",
   "margin-bottom": -10,
   "spacing": 0,
-  "modules-left": ["hyprland/workspaces", "cpu", "memory", "temperature"],
+  "modules-left": ["hyprland/workspaces", "cpu", "temperature", "memory"],
   "modules-center": ["clock"],
   "modules-right": [
     "bluetooth",
