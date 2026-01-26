@@ -201,11 +201,14 @@
 /* --- Tooltip Styles --- */
 tooltip {
   background-color: #1a1b26;
-  color: #dddddd;
+  color: #c6d0f5;
   padding: 5px 12px;
   margin: 5px 0px;
   border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   font-size: 12px;
+}
+tooltip label {
+  color: #c6d0f5;
 }
