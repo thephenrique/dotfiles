@@ -11,6 +11,16 @@ vim.cmd([[
   let g:c_syntax_for_h = 1
 ]])
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "c", "cpp", "h", "hpp" },
+	callback = function()
+		vim.bo.expandtab = true
+		vim.bo.tabstop = 4
+		vim.bo.shiftwidth = 4
+		vim.bo.softtabstop = 4
+	end,
+})
+
 -- Set local settings for Terminal buffers.
 vim.api.nvim_create_autocmd("TermOpen", {
 	group = vim.api.nvim_create_augroup("custom-term-open", {}),
