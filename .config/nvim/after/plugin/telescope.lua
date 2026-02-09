@@ -3,6 +3,8 @@ if not pcall(require, "telescope") then
 	return
 end
 
+local actions = require("telescope.actions")
+
 require("telescope").setup({
 	defaults = {
 		wrap_results = true,
@@ -13,6 +15,15 @@ require("telescope").setup({
 			height = 100,
 			prompt_position = "bottom",
 			preview_cutoff = 40,
+		},
+		mappings = {
+			-- Standardize the Vertical Split with the Oil.
+			i = {
+				["<M-v>"] = actions.select_vertical,
+			},
+			n = {
+				["<M-v>"] = actions.select_vertical,
+			},
 		},
 	},
 	extensions = {
