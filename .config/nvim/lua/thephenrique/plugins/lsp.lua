@@ -14,6 +14,5 @@ return {
 		"mason-org/mason-lspconfig.nvim",
 		-- -- Provides formatter helper.
 		"stevearc/conform.nvim",
-		"mfussenegger/nvim-lint",
 	},
 }

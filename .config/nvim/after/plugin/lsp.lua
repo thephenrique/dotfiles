@@ -24,11 +24,6 @@ if not pcall(require, "cmp_nvim_lsp") then
 	return
 end
 
-if not pcall(require, "lint") then
-	print("Plugin: lint not found")
-	return
-end
-
 vim.diagnostic.config({
 	virtual_text = true,
 })
@@ -36,11 +31,62 @@ vim.diagnostic.config({
 require("lspconfig")
 local mason_lspconfig = require("mason-lspconfig")
 
+-- Select the formatter for web development based on the presence of configuration files in the project.
+-- The linters like ESLint, Oxlint and Biome can be activated on their own.
+local function select_web_formatter()
+	local biome_config_files = { "biome.json", "biome.jsonc" }
+	for _, config_file in ipairs(biome_config_files) do
+		if vim.fn.filereadable(vim.fn.findfile(config_file, ".;")) == 1 then
+			return "biome"
+		end
+	end
+
+	local prettier_config_files = {
+		".prettierrc",
+		".prettierrc.json",
+		".prettierrc.yml",
+		".prettierrc.yaml",
+		".prettierrc.json5",
+		".prettierrc.js",
+		"prettier.config.js",
+		".prettierrc.ts",
+		"prettier.config.ts",
+		".prettierrc.mjs",
+		"prettier.config.mjs",
+		".prettierrc.mts",
+		"prettier.config.mts",
+		".prettierrc.cjs",
+		"prettier.config.cjs",
+		".prettierrc.cts",
+		"prettier.config.cts",
+		".prettierrc.toml",
+	}
+	for _, config_file in ipairs(prettier_config_files) do
+		if vim.fn.filereadable(vim.fn.findfile(config_file, ".;")) == 1 then
+			return "prettier"
+		end
+	end
+
+	local oxfmt_config_files = { ".oxfmtrc.json", ".oxfmtrc.jsonc" }
+	for _, config_file in ipairs(oxfmt_config_files) do
+		if vim.fn.filereadable(vim.fn.findfile(config_file, ".;")) == 1 then
+			return "oxfmt"
+		end
+	end
+
+	-- Provides formatter to Web environment with Prettier (:Mason install prettier).
+	-- Default to Prettier if no specific formatter config file is found.
+	return "prettier"
+end
+
 -- Auto install LSP servers with Mason.
 mason_lspconfig.setup({
 	ensure_installed = {
 		"ts_ls",
 		"eslint",
+		"oxlint",
+		"oxfmt",
+		"biome",
 		"html",
 		"cssls",
 		"jsonls",
@@ -64,9 +110,6 @@ mason_lspconfig.setup({
 		-- ltex-ls (Grammar)
 		-- texlab (LSP)
 		-- latexindent (Formatter)
-	},
-	automatic_enable = {
-		exclude = { "oxlint", "eslint" },
 	},
 })
 
@@ -115,71 +158,25 @@ if not pcall(require, "conform") then
 end
 
 local conform = require("conform")
-local util = require("lspconfig.util")
 
-local function has_file(names, bufnr)
-	local use_unpack = table.unpack or unpack
-
-	local filename = vim.api.nvim_buf_get_name(bufnr)
-	local root = util.root_pattern(use_unpack(names))(filename)
-	return root ~= nil
-end
-
-local function get_js_formatter(bufnr)
-	-- Biome
-	if has_file({
-		"biome.json",
-		"biome.jsonc",
-	}, bufnr) then
-		return { "biome" }
-	end
-
-	-- Oxc / Oxfmt
-	if has_file({
-		".oxfmtrc.json",
-		".oxfmtrc.jsonc",
-		"oxfmt.json",
-	}, bufnr) then
-		return { "oxfmt" }
-	end
-
-	-- ESLint + Prettier
-	if
-		has_file({
-			".eslintrc",
-			".eslintrc.js",
-			".eslintrc.cjs",
-			".eslintrc.json",
-			"eslint.config.js",
-			"eslint.config.mjs",
-			"eslint.config.cjs",
-		}, bufnr)
-	then
-		return { "prettier" }
-	end
-
-	-- fallback
-	return { "prettier" }
-end
+local web_formatter = select_web_formatter()
 
 conform.setup({
 	formatters_by_ft = {
 		-- Provides formatter to Lua (:Mason install stylua).
 		lua = { "stylua" },
 
-		-- Provides formatter to Web environment with Prettier (:Mason install prettier).
-		-- Biome and Oxfmt are also supported, but Prettier is the fallback.
-		javascript = get_js_formatter,
-		typescript = get_js_formatter,
-		javascriptreact = get_js_formatter,
-		typescriptreact = get_js_formatter,
-		css = get_js_formatter,
-		html = get_js_formatter,
-		json = get_js_formatter,
-		jsonc = get_js_formatter,
-		graphql = get_js_formatter,
-		yaml = get_js_formatter,
-		markdown = get_js_formatter,
+		javascript = { web_formatter },
+		typescript = { web_formatter },
+		javascriptreact = { web_formatter },
+		typescriptreact = { web_formatter },
+		css = { web_formatter },
+		html = { web_formatter },
+		json = { web_formatter },
+		jsonc = { web_formatter },
+		yaml = { web_formatter },
+		graphql = { web_formatter },
+		markdown = { web_formatter },
 
 		-- Provides formatter to shell (:Mason install shfmt).
 		sh = { "shfmt" },
@@ -202,59 +199,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
 	callback = function(args)
 		conform.format({ bufnr = args.buf, lsp_fallback = true })
-	end,
-})
-
-local lint = require("lint")
-
-local function get_js_linter(bufnr)
-	-- Biome
-	if has_file({
-		"biome.json",
-		"biome.jsonc",
-	}, bufnr) then
-		return "biomejs"
-	end
-
-	-- Oxlint
-	if has_file({
-		"oxlint.json",
-		".oxlintrc.json",
-		".oxlintrc.jsonc",
-	}, bufnr) then
-		return "oxlint"
-	end
-
-	-- ESLint
-	if
-		has_file({
-			".eslintrc",
-			".eslintrc.js",
-			".eslintrc.cjs",
-			".eslintrc.json",
-			"eslint.config.js",
-			"eslint.config.mjs",
-			"eslint.config.cjs",
-			"eslint.config.ts",
-			"eslint.config.mts",
-			"eslint.config.cts",
-		}, bufnr)
-	then
-		return "eslint_d"
-	end
-
-	-- fallback
-	return nil
-end
-
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
-	pattern = { "*.js", "*.jsx", "*.ts", "*.tsx", "*.mjs", "*.cjs", "*.mts", "*.cts" },
-	callback = function(args)
-		local linter = get_js_linter(args.buf)
-
-		if linter ~= nil then
-			lint.try_lint(linter)
-		end
 	end,
 })
 
