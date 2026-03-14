@@ -30,3 +30,26 @@ bindkey '^G' fzf-history-widget
 
 # Add backward-kill-word to <C-H> and <Backspace>.
 bindkey '^H' backward-kill-word
+
+#
+
+# pnpm
+#
+# Setup `n` with `sudo`.
+export N_PREFIX="$HOME/.local/n"
+export PATH="$N_PREFIX/bin:$PATH"
+#
+export PNPM_HOME="/home/pedro/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+#
+# To use Node from system instead of `n`.
+# export PATH="$(printf '%s' "$PATH" | sed 's#'"$HOME"'/.local/n/bin:##')"
+# hash -r
+# # To Confirm.
+# which node
+# which npm
+#
+# pnpm end
