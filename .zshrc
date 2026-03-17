@@ -75,3 +75,8 @@ bindkey '^H' backward-kill-word
 # zvm_bindkey visual 'P' zvm_visual_paste_clipboard
 # #
 # export ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
+
+# OpenCode
+export PATH=/home/pedrosilva/.opencode/bin:$PATH
+# Claude
+export PATH="$HOME/.local/bin:$PATH"
