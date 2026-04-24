@@ -1,0 +1,23 @@
+vim.g.VM_leader = "<C-s>"
+
+-- `vim-visual-multi` Leader Key ::: <C-s> (default: \\)
+--
+-- `vim-visual-multi` <Tab> ::: Switch between Cursor and Extend Modes
+--                    Cursor Mode is similar to Neovim Normal Mode.
+--                    Extend Mode is similar to Neovim Visual Mode.
+--
+-- # With Visual Multi (VM) started:
+-- mG ::: Select all words downwards.
+-- mgg ::: Select all words upwards.
+-- <leader>a ::: To align regions.
+-- <leader>C ::: To case convertion.
+--    https://github.com/mg979/vim-visual-multi/blob/master/doc/visual-multi.txt#L633
+--    U ::: To uppercase.
+--    u ::: To lowercase.
+--    more...
+--
+-- # Without Visual Multi (VM) started:
+-- <C-Up> ::: Start VM adding cursors upwards.
+-- <C-Down> ::: Start VM adding cursors downwards.
+-- <C-n> ::: in Visual Mode to select and init Extend Mode.
+-- <leader>A ::: Select all words in the file.

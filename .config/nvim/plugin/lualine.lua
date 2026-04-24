@@ -1,9 +1,6 @@
-if not pcall(require, "lualine") then
-	print("Plugin: lualine not found")
-	return
-end
+local lualine = require("lualine")
 
--- A custom filename component that shows Oil paths nicely.
+-- A custom filename component that shows oil.nvim paths nicely.
 local function smart_filename()
 	local bufname = vim.api.nvim_buf_get_name(0)
 
@@ -25,12 +22,10 @@ local function smart_filename()
 	return "oil:///" .. relative
 end
 
-require("lualine").setup({
+lualine.setup({
 	options = {
 		icons_enabled = true,
-		-- theme = "zenburn", -- Good for Gruvbox theme.
-		theme = "horizon", -- Good for Zenburn theme.
-		-- theme = "Tomorrow", -- Only for DoomOne (light)
+		theme = "horizon",
 		section_separators = { left = "", right = "" },
 		component_separators = { left = "", right = "" },
 		disabled_filetypes = {},
@@ -70,5 +65,4 @@ require("lualine").setup({
 		lualine_z = {},
 	},
 	tabline = {},
-	extensions = { "nvim-tree" },
 })
