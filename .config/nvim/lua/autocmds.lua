@@ -28,3 +28,31 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end
 	end,
 })
+
+-- Enable Treesitter highlighting and indent.
+vim.api.nvim_create_autocmd("FileType", {
+	callback = function(args)
+		local lang = vim.treesitter.language.get_lang(args.match)
+		if lang and vim.treesitter.language.add(lang) then
+			vim.treesitter.start(args.buf, lang)
+			pcall(function()
+				vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+			end)
+		end
+	end,
+})
+
+-- Map unknown filetypes.
+vim.filetype.add({
+	filename = {
+		["docker-compose.yaml"] = "yaml.docker-compose",
+		["docker-compose.yml"] = "yaml.docker-compose",
+		["compose.yaml"] = "yaml.docker-compose",
+		["compose.yml"] = "yaml.docker-compose",
+		[".gitlab-ci.yml"] = "yaml.gitlab",
+	},
+	pattern = {
+		[".*/templates/.*%.ya?ml"] = "yaml.helm-values",
+		[".*%.gotmpl"] = "gotmpl",
+	},
+})

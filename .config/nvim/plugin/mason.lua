@@ -29,7 +29,9 @@ mason_lspconfig.setup({
 
 		"gopls",
 	},
-	automatic_enable = true,
+	automatic_enable = {
+		exclude = { "stylua" },
+	},
 })
 
 mason_tool_installer.setup({
