@@ -20,4 +20,5 @@ nvim_treesitter.install({
 	"lua",
 	"vim",
 	"vimdoc",
+	"gitcommit",
 })

@@ -9,6 +9,7 @@ vim.keymap.set("t", "<Esc><Esc>", "<c-\\><c-n>")
 vim.keymap.set("n", "<leader>l", function()
 	vim.cmd.noh()
 	vim.cmd.redraw()
+	vim.cmd.edit()
 end)
 
 -- Move selected line up/down.

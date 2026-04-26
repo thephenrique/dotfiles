@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 	end,
 })
 
--- Enable completion.
+-- Enable native completion.
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(ev)
 		local client = vim.lsp.get_client_by_id(ev.data.client_id)
@@ -29,7 +29,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
--- Enable Treesitter highlighting and indent.
+-- Enable Treesitter.
 vim.api.nvim_create_autocmd("FileType", {
 	callback = function(args)
 		local lang = vim.treesitter.language.get_lang(args.match)
