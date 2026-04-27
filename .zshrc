@@ -80,3 +80,7 @@ bindkey '^H' backward-kill-word
 export PATH=/home/pedrosilva/.opencode/bin:$PATH
 # Claude
 export PATH="$HOME/.local/bin:$PATH"
+
+# fzf
+export PATH="$HOME/.fzf/bin:$PATH"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

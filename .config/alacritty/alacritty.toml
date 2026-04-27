@@ -34,7 +34,7 @@ size = 13
 # @LINK https://github.com/protesilaos/iosevka-comfy
 
 [font.bold]
-family = "Jetbrains Mono"
+family = "IoskeleyMono Nerd Font"
 # family = "Iosevka Nerd Font Mono"
 # family = "Iosevka Comfy"
 # family = "Iosevka Fixed SS07"
@@ -42,7 +42,7 @@ family = "Jetbrains Mono"
 style = "Bold"
 
 [font.italic]
-family = "Jetbrains Mono"
+family = "IoskeleyMono Nerd Font"
 # family = "Iosevka Nerd Font Mono"
 # family = "Iosevka Comfy"
 # family = "Iosevka Fixed SS07"
@@ -50,7 +50,7 @@ family = "Jetbrains Mono"
 style = "Italic"
 
 [font.normal]
-family = "Jetbrains Mono"
+family = "IoskeleyMono Nerd Font"
 # family = "Iosevka Nerd Font Mono"
 # family = "Iosevka Comfy"
 # family = "Iosevka Fixed SS07"
