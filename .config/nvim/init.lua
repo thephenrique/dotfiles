@@ -5,33 +5,59 @@
 --     \__/_/ /_/\___/ .___/_/ /_/\___/_/ /_/_/  /_/\__, /\__,_/\___/
 --                  /_/                               /_/
 
--- [[ Awesome Neovim configuration ]] --
+require("options")
+require("keymaps")
+require("autocmds")
 
--- Mapping Leader key.
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+-- System dependency requirements:
+-- tree-sitter-cli (for treesitter)
+-- bat (for fzf-lua)
+-- wget (for mason)
 
--- Import default global Neovim settings.
-require("thephenrique.default.builtin")
-require("thephenrique.default.options")
-require("thephenrique.default.mappings")
-require("thephenrique.default.commands")
+vim.pack.add({
+	-- mini.icons
+	{ src = "https://github.com/echasnovski/mini.icons" },
 
--- Bootstrap the plugin manager (lazy.nvim).
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+	-- TODO: It has been archived.
+	-- Use it until compatibility with Neovim breaks, or until the community presents an alternative.
+	-- treesitter.nvim (archived)
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 
-if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable",
-		lazypath,
-	})
-end
+	-- Language Server Protocol (LSP)
+	{ src = "https://github.com/neovim/nvim-lspconfig" },
 
-vim.opt.rtp:prepend(lazypath)
+	-- mason.nvim
+	{ src = "https://github.com/mason-org/mason-lspconfig.nvim" },
+	{ src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" },
+	{ src = "https://github.com/mason-org/mason.nvim" },
 
--- Load the plugins.
-require("lazy").setup("thephenrique.plugins")
+	-- conform.nvim
+	{ src = "https://github.com/stevearc/conform.nvim" },
+
+	-- lualine.nvim
+	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
+
+	-- colorbuddy.nvim
+	{ src = "https://github.com/tjdevries/colorbuddy.nvim" },
+
+	-- fidget.nvim
+	{ src = "https://github.com/j-hui/fidget.nvim" },
+
+	-- oil.nvim
+	{ src = "https://github.com/refractalize/oil-git-status.nvim" },
+	{ src = "https://github.com/stevearc/oil.nvim" },
+
+	-- fzf-lua
+	{ src = "https://github.com/ibhagwan/fzf-lua" },
+
+	-- vim-visual-multi
+	{ src = "https://github.com/mg979/vim-visual-multi" },
+
+	-- neogit
+	{ src = "https://github.com/nvim-lua/plenary.nvim" },
+	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
+	{ src = "https://github.com/neogitorg/neogit" },
+})
+
+-- Enable native undotree
+vim.cmd.packadd("nvim.undotree")

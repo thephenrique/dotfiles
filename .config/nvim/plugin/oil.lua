@@ -1,14 +1,12 @@
-if not pcall(require, "oil") then
-	print("Plugin: oil not found")
-	return
-end
+local oil = require("oil")
+local oil_git_status = require("oil-git-status")
 
-if not pcall(require, "oil-git-status") then
-	print("Plugin: oil-git-status not found")
-	return
-end
+local mini_icons = require("mini.icons")
 
-require("oil").setup({
+mini_icons.setup()
+mini_icons.mock_nvim_web_devicons()
+
+oil.setup({
 	columns = {
 		"icon",
 		"permissions",
@@ -33,7 +31,6 @@ require("oil").setup({
 			callback = function()
 				require("oil.actions").copy_entry_path.callback()
 
-				local oil = require("oil")
 				local dir = oil.get_current_dir()
 				local entry = oil.get_cursor_entry()
 				local relative_path = vim.fn.fnamemodify(dir, ":.")
@@ -48,6 +45,13 @@ require("oil").setup({
 	},
 })
 
-require("oil-git-status").setup({
+oil_git_status.setup({
 	show_ignored = false,
 })
+
+-- Open oil.nvim in current Buffer.
+vim.keymap.set("n", "-", "<CMD>Oil<CR>")
+
+-- Open oil.nvim in parent directory of current Buffer.
+-- Useful when you have 2 splits of Oil and want to bring files from other directories to the current one.
+vim.keymap.set("n", "<leader>-", [[:Oil <C-r>=substitute(expand('%:p:h'), 'oil://', '', '')<CR>]])
