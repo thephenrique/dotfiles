@@ -26,13 +26,10 @@ turnOnNotebookMonitor() {
 }
 
 turnOnHDMI1Monitor() {
-  xrandr --output "HDMI-1" --auto --primary --left-of "eDP-1" --scale 1x1 --output "eDP-1" --off --output "DP-1" --off
+  xrandr --output "HDMI-1" --auto --primary --left-of "eDP-1" --output "eDP-1" --off --output "DP-1" --off
   sleep 2
 
-  xrandr -s 3840x2160
-  sleep 2
-
-  xrandr --dpi 144
+  xrandr --dpi 192
   sleep 2
 
   i3-msg restart

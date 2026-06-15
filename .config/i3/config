@@ -55,9 +55,10 @@ include $HOME/.config/i3/statusbar.conf
 
 # Force Fix auto-repeat configs.
 # Force fix auto-repeat configs and fix keyboard layout and swap CAPS with Left CTRL.
-bindsym $mod+F1 exec --no-startup-id $xset_rate && setxkbmap -layout us
+# bindsym $mod+F1 exec --no-startup-id $xset_rate && setxkbmap -layout us
 # Force fix auto-repeat configs and force Fix keyboard layout (with intl variant) and swap CAPS with Left CTRL.
-bindsym $mod+F2 exec --no-startup-id $xset_rate && setxkbmap -layout us -variant intl
+# bindsym $mod+F2 exec --no-startup-id $xset_rate && setxkbmap -layout us -variant intl
+bindsym $mod+space exec --no-startup-id ~/.config/bin/toggle-layout.sh
 # Force remaps.
 # bindsym $mod+F3 exec --no-startup-id xmodmap ~/.Xmodmap
 # bindsym $mod+F3 exec --no-startup-id input-remapper-control --command autoload
@@ -109,7 +110,7 @@ bindsym $mod+i exec "flameshot gui"
 bindsym Print exec "flameshot screen"
 
 # Others.
-bindsym $mod+c exec --no-startup-id google-chrome
+bindsym $mod+c exec --no-startup-id google-chrome --force-device-scale-factor=1.5
 bindsym $mod+e exec --no-startup-id nautilus
 
 # Audio keyboard control.

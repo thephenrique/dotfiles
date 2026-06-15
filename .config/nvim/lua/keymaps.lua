@@ -9,7 +9,6 @@ vim.keymap.set("t", "<Esc><Esc>", "<c-\\><c-n>")
 vim.keymap.set("n", "<leader>l", function()
 	vim.cmd.noh()
 	vim.cmd.redraw()
-	vim.cmd.edit()
 end)
 
 -- Move selected line up/down.
@@ -17,7 +16,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 
 -- Alternate between current and previous buffer (6 is too far from CTRL).
-vim.keymap.set("n", "<leader><leader>", "<C-6>")
+vim.keymap.set("n", "<C-p>", "<C-6>")
 
 -- Up/Down in the Quickfix.
 -- :copen ::: Open Quickfix.
