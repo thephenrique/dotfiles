@@ -8,30 +8,40 @@ dirs=(
   ~/Documents/personal/apps
   ~/.config)
 
-selected_path=$(find ${dirs[@]} -mindepth 1 -maxdepth 1 -type d | fzf --query "$1")
+#
+switch_to() {
+  local name=$1
+  local path=$2
 
-if [[ -z $selected_path ]]; then
-  exit 0
-fi
-
-selected_name=$(basename "$selected_path" | tr . _)
-tmux_running=$(pgrep tmux)
-
-# if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-# Start tmux session (attach or new).
-if [[ -z $TMUX ]]; then
-  tmux attach -t $selected_name 2>/dev/null
-  if [ ! $? -eq 0 ]; then
-    tmux new-session -s $selected_name -c $selected_path
+  if [[ -z $TMUX ]]; then
+    if ! tmux attach -t "$name" 2>/dev/null; then
+      tmux new-session -s "$name" -c "$path"
+    fi
+    exit 0
   fi
 
+  if ! tmux has-session -t="$name" 2>/dev/null; then
+    tmux new-session -ds "$name" -c "$path"
+  fi
+
+  tmux switch-client -t "$name"
+}
+
+#
+if [[ $1 == "-s" || $1 == "--sessions" ]]; then
+  selected_name=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --query "$2")
+
+  [[ -z $selected_name ]] && exit 0
+
+  switch_to "$selected_name"
   exit 0
 fi
 
-# Handle (new and/or switch) sessions inside of tmux.
+#
+selected_path=$(find "${dirs[@]}" -mindepth 1 -maxdepth 1 -type d | fzf --query "$1")
 
-if ! tmux has-session -t=$selected_name 2>/dev/null; then
-  tmux new-session -ds $selected_name -c $selected_path
-fi
+[[ -z $selected_path ]] && exit 0
 
-tmux switch-client -t $selected_name
+selected_name=$(basename "$selected_path" | tr . _)
+
+switch_to "$selected_name" "$selected_path"

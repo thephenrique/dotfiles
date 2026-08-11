@@ -25,3 +25,10 @@ tmux-sessionizer-widget() {
 }
 zle -N tmux-sessionizer-widget
 bindkey '^f' tmux-sessionizer-widget
+
+tmux-sessionizer-with-sessions-widget() {
+  BUFFER="~/.config/bin/tmux-sessionizer -s $BUFFER"
+  zle accept-line
+}
+zle -N tmux-sessionizer-with-sessions-widget
+bindkey '^b' tmux-sessionizer-with-sessions-widget
