@@ -1,0 +1,8 @@
+# Ignore all files/directories...
+/*
+
+# ... except ...
+!.gitignore
+
+# ... except.
+!statusline.sh
