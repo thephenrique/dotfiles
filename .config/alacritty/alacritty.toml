@@ -1,6 +1,7 @@
 [general]
 live_config_reload = true
-import = ["~/.config/alacritty/gnome-terminal-theme.toml"]
+# import = ["~/.config/alacritty/themes/gnome-terminal.toml"]
+import = ["~/.config/alacritty/themes/zenburn.toml"]
 
 [bell]
 animation = "EaseOutExpo"
@@ -19,42 +20,24 @@ blinking = "Always"
 [debug]
 render_timer = false
 
-[env]
-TERM = "xterm-256color"
-
 [font.glyph_offset]
 x = 0
 y = 0
 
 [font]
-size = 13
-
-# Iosevka Comfy repository.
-# The TTFs already exist there.
-# @LINK https://github.com/protesilaos/iosevka-comfy
+size = 16
+# size = 14 for "Ubuntu Mono"
 
 [font.bold]
-family = "IoskeleyMono Nerd Font"
-# family = "Iosevka Nerd Font Mono"
-# family = "Iosevka Comfy"
-# family = "Iosevka Fixed SS07"
-# family = "ComicShannsMono Nerd Font Propo"
+family = "UbuntuMono Nerd Font"
 style = "Bold"
 
 [font.italic]
-family = "IoskeleyMono Nerd Font"
-# family = "Iosevka Nerd Font Mono"
-# family = "Iosevka Comfy"
-# family = "Iosevka Fixed SS07"
-# family = "ComicShannsMono Nerd Font Propo"
+family = "UbuntuMono Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "IoskeleyMono Nerd Font"
-# family = "Iosevka Nerd Font Mono"
-# family = "Iosevka Comfy"
-# family = "Iosevka Fixed SS07"
-# family = "ComicShannsMono Nerd Font Propo"
+family = "UbuntuMono Nerd Font"
 style = "Regular"
 
 [font.offset]
@@ -96,8 +79,8 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 program = "/usr/bin/zsh"
 
 [window]
-decorations = "full"
-dynamic_padding = false
+decorations = "none"
+dynamic_padding = true
 dynamic_title = true
 opacity = 1.0
 

@@ -37,8 +37,11 @@ vim.pack.add({
 	-- lualine.nvim
 	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
 
+	-- Color Schemes
 	-- colorbuddy.nvim
 	{ src = "https://github.com/tjdevries/colorbuddy.nvim" },
+	-- colorbuddy.nvim
+	{ src = "https://github.com/thephenrique/zenburn.nvim" },
 
 	-- fidget.nvim
 	{ src = "https://github.com/j-hui/fidget.nvim" },

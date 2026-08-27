@@ -25,8 +25,6 @@ mason_lspconfig.setup({
 		"lua_ls",
 		"stylua",
 
-		"clangd",
-
 		"gopls",
 	},
 	automatic_enable = {
