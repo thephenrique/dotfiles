@@ -4,8 +4,6 @@
 dirs=(
   ~/Documents/work
   ~/Documents/work/apps
-  ~/Documents/personal
-  ~/Documents/personal/apps
   ~/.config)
 
 #

@@ -1,6 +1,0 @@
-layout {
-	pane command="bash" {
-		args "-c" "zellij kill-all-sessions -y; zellij delete-all-sessions -y"
-		close_on_exit true
-	}
-}

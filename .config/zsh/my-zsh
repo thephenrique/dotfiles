@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+alias vim="nvim"
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+export ZSH=~/.oh-my-zsh
+# INSTALL: ln -s ~/.config/zsh/themes/simple.zsh-theme $ZSH_CUSTOM/themes/simple.zsh-theme
+export ZSH_THEME="simple"
+
+plugins=(
+  git
+  # INSTALL: git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+  zsh-syntax-highlighting
+  fzf
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# create tmux sessions
+tmux-sessionizer-widget() {
+  BUFFER="~/.config/bin/tmux-sessionizer $BUFFER"
+  zle accept-line
+}
+zle -N tmux-sessionizer-widget
+bindkey '^f' tmux-sessionizer-widget
+
+# fzf created tmux sessions
+tmux-sessionizer-with-sessions-widget() {
+  BUFFER="~/.config/bin/tmux-sessionizer -s $BUFFER"
+  zle accept-line
+}
+zle -N tmux-sessionizer-with-sessions-widget
+bindkey '^b' tmux-sessionizer-with-sessions-widget
+
+# fzf zsh history
+bindkey '^G' fzf-history-widget
+# set backward-kill-word to <Backspace>
+bindkey '^H' backward-kill-word
